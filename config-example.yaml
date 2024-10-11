@@ -3,5 +3,5 @@
 sync:
   garmin:
     authentication_domain: CN #  Global (default) | CN (Mainland China)
-    email: 334223834@qq.com
-    password: mXc1jnodbc
+    email: test
+    password: test
