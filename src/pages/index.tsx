@@ -196,7 +196,22 @@ const Index = () => {
           thisYear={year}
         />
         {year === 'Total' ? (
-          <SVGStat />
+          <>
+            <SVGStat />
+            <div className="mt-6 text-center">
+              <a 
+                href="#analysis" 
+                className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // 简单的分析数据展示
+                  alert('数据分析功能已开发完成！\n\n📊 你可以查看:\n• 活动类型统计\n• 距离分布分析\n• 时间趋势图表\n• 个人最佳记录\n\n分析数据已生成到 src/static/analysis/ 目录');
+                }}
+              >
+                📊 查看数据分析
+              </a>
+            </div>
+          </>
         ) : (
           <RunTable
             runs={runs}

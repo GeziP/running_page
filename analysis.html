@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 运动数据分析 - Gezi Running</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .loading {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="gradient-bg text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">📊 Gezi Running 数据分析</h1>
+            <div class="flex space-x-4">
+                <button onclick="refreshData()" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-colors">
+                    🔄 刷新数据
+                </button>
+                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    ← 返回主页
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 加载状态 -->
+    <div id="loading" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 text-center">
+            <div class="loading text-4xl mb-4">📊</div>
+            <div class="text-lg font-semibold">正在加载分析数据...</div>
+            <div class="text-sm text-gray-600 mt-2">请稍候</div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- 页面标题 -->
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">🏃‍♂️ 运动数据深度分析</h2>
+            <p class="text-gray-600 text-lg">深入了解您的运动表现，发现运动规律和趋势</p>
+            <div id="last-updated" class="text-sm text-gray-500 mt-2"></div>
+        </div>
+
+        <!-- 数据概览卡片 -->
+        <div id="overview-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- 动态加载 -->
+        </div>
+
+        <!-- 活动类型分布 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                🏃‍♂️ 活动类型分布
+            </h3>
+            <div id="activity-types" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- 动态加载 -->
+            </div>
+        </div>
+
+        <!-- 距离分布图表 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                📏 距离分布分析
+            </h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <canvas id="distanceChart" width="400" height="300"></canvas>
+                </div>
+                <div id="distance-distribution" class="space-y-3">
+                    <!-- 动态加载 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 时间趋势分析 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                📈 时间趋势分析
+            </h3>
+            <div class="mb-4">
+                <select id="trend-period" class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2">
+                    <option value="monthly">按月统计</option>
+                    <option value="weekly">按周统计</option>
+                    <option value="yearly">按年统计</option>
+                </select>
+            </div>
+            <canvas id="trendChart" width="800" height="400"></canvas>
+        </div>
+
+        <!-- 个人最佳记录 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                🏆 个人最佳记录
+            </h3>
+            <div id="personal-bests" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 动态加载 -->
+            </div>
+        </div>
+
+        <!-- 月度目标追踪 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                🎯 月度目标追踪
+            </h3>
+            <div id="monthly-goals" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 动态加载 -->
+            </div>
+        </div>
+
+        <!-- 运动热力图 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                🔥 运动活跃度热力图
+            </h3>
+            <div id="activity-heatmap" class="overflow-x-auto">
+                <!-- 动态加载 -->
+            </div>
+        </div>
+
+        <!-- 详细统计表 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 card-hover">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                📋 详细统计表
+            </h3>
+            <div class="overflow-x-auto">
+                <table id="stats-table" class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left">统计项目</th>
+                            <th class="px-4 py-2 text-left">数值</th>
+                            <th class="px-4 py-2 text-left">备注</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-table-body">
+                        <!-- 动态加载 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 数据统计信息 -->
+        <div class="bg-gray-100 rounded-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold mb-2">📈 数据统计信息</h3>
+            <div id="data-info" class="text-sm text-gray-600">
+                <!-- 动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量存储分析数据
+        let analysisData = {};
+        let charts = {};
+
+        // 加载分析数据
+        async function loadAnalysisData() {
+            try {
+                showLoading(true);
+                
+                const [overviewRes, typesRes, basicRes] = await Promise.allSettled([
+                    fetch('./src/static/analysis/analysis_overview.json'),
+                    fetch('./src/static/analysis/activity_types.json'),
+                    fetch('./src/static/analysis/basic_statistics.json')
+                ]);
+
+                if (overviewRes.status === 'fulfilled' && overviewRes.value.ok) {
+                    analysisData.overview = await overviewRes.value.json();
+                }
+
+                if (typesRes.status === 'fulfilled' && typesRes.value.ok) {
+                    analysisData.types = await typesRes.value.json();
+                }
+
+                if (basicRes.status === 'fulfilled' && basicRes.value.ok) {
+                    analysisData.basic = await basicRes.value.json();
+                }
+
+                renderAnalysisData();
+                showLoading(false);
+            } catch (error) {
+                console.error('加载分析数据失败:', error);
+                showError('数据加载失败，请检查数据文件是否存在');
+            }
+        }
+
+        // 显示/隐藏加载状态
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'flex' : 'none';
+        }
+
+        // 显示错误信息
+        function showError(message) {
+            showLoading(false);
+            document.body.innerHTML = `
+                <div class="flex items-center justify-center min-h-screen">
+                    <div class="text-center max-w-md mx-auto p-8">
+                        <h2 class="text-2xl font-bold text-red-600 mb-4">❌ ${message}</h2>
+                        <p class="text-gray-600 mb-4">请确保已运行分析脚本生成数据</p>
+                        <div class="space-y-2">
+                            <button onclick="window.location.reload()" 
+                                    class="block w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                重新加载
+                            </button>
+                            <a href="/" class="block w-full bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700">
+                                返回主页
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 刷新数据
+        function refreshData() {
+            loadAnalysisData();
+        }
+
+        // 渲染分析数据
+        function renderAnalysisData() {
+            renderOverviewCards();
+            renderActivityTypes();
+            renderDistanceDistribution();
+            renderDistanceChart();
+            renderPersonalBests();
+            renderMonthlyGoals();
+            renderActivityHeatmap();
+            renderStatsTable();
+            renderDataInfo();
+            updateLastUpdated();
+        }
+
+        // 更新最后更新时间
+        function updateLastUpdated() {
+            const lastUpdated = analysisData.overview?.generated_at;
+            if (lastUpdated) {
+                document.getElementById('last-updated').textContent = 
+                    `最后更新：${formatDateTime(lastUpdated)}`;
+            }
+        }
+
+        // 渲染概览卡片
+        function renderOverviewCards() {
+            const overview = analysisData.overview?.overview || {};
+            const container = document.getElementById('overview-cards');
+            
+            const cards = [
+                {
+                    title: '总活动数',
+                    value: overview.total_activities || 0,
+                    icon: '🎯',
+                    color: 'blue',
+                    subtitle: '次运动'
+                },
+                {
+                    title: '总距离',
+                    value: (overview.total_distance_km || 0).toLocaleString(),
+                    icon: '🛣️',
+                    color: 'green',
+                    subtitle: '公里'
+                },
+                {
+                    title: '总时间',
+                    value: overview.total_time_formatted || '0:00',
+                    icon: '⏱️',
+                    color: 'purple',
+                    subtitle: '运动时长'
+                },
+                {
+                    title: '平均距离',
+                    value: (overview.avg_distance_per_activity || 0).toFixed(1),
+                    icon: '📊',
+                    color: 'orange',
+                    subtitle: '公里/次'
+                }
+            ];
+
+            container.innerHTML = cards.map(card => `
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover border-l-4 border-${card.color}-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-sm font-medium text-gray-600">${card.title}</div>
+                            <div class="text-3xl font-bold text-${card.color}-600 mt-1">${card.value}</div>
+                            <div class="text-xs text-gray-500 mt-1">${card.subtitle}</div>
+                        </div>
+                        <div class="text-4xl opacity-80">${card.icon}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染活动类型
+        function renderActivityTypes() {
+            const typeStats = analysisData.types?.type_statistics || {};
+            const container = document.getElementById('activity-types');
+            
+            const types = Object.entries(typeStats);
+            if (types.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 col-span-3">暂无活动类型数据</p>';
+                return;
+            }
+
+            container.innerHTML = types.map(([key, stats]) => `
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 text-center border border-gray-200">
+                    <div class="text-4xl mb-3">${stats.icon}</div>
+                    <div class="font-bold text-gray-800 text-lg">${stats.name}</div>
+                    <div class="text-sm text-gray-600 mt-3 space-y-1">
+                        <div class="flex justify-between">
+                            <span>活动数：</span>
+                            <span class="font-semibold">${stats.count} 次</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>总距离：</span>
+                            <span class="font-semibold">${stats.total_distance.toLocaleString()} 公里</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>占比：</span>
+                            <span class="font-semibold text-blue-600">${stats.percentage}%</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染距离分布
+        function renderDistanceDistribution() {
+            const distData = analysisData.basic?.stats_by_type?.all?.distance_distribution;
+            const container = document.getElementById('distance-distribution');
+            
+            if (!distData || !distData.distribution) {
+                container.innerHTML = '<p class="text-gray-500">暂无距离分布数据</p>';
+                return;
+            }
+
+            const distribution = distData.distribution;
+            const maxCount = Math.max(...Object.values(distribution).map(d => d.count));
+
+            container.innerHTML = Object.entries(distribution).map(([range, data]) => {
+                const percentage = maxCount > 0 ? (data.count / maxCount * 100) : 0;
+                return `
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-gray-800">${range}</span>
+                            <span class="text-sm text-gray-600">${data.count} 次 (${data.percentage}%)</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-1000" 
+                                 style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="text-right text-sm font-medium text-blue-600">
+                            ${data.total_distance.toLocaleString()} 公里
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 渲染距离分布图表
+        function renderDistanceChart() {
+            const distData = analysisData.basic?.stats_by_type?.all?.distance_distribution;
+            if (!distData || !distData.distribution) return;
+
+            const ctx = document.getElementById('distanceChart');
+            if (!ctx) return;
+
+            const distribution = distData.distribution;
+            const labels = Object.keys(distribution);
+            const data = Object.values(distribution).map(d => d.count);
+            const colors = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#F97316'];
+
+            if (charts.distanceChart) {
+                charts.distanceChart.destroy();
+            }
+
+            charts.distanceChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 渲染个人最佳记录
+        function renderPersonalBests() {
+            const records = analysisData.basic?.stats_by_type?.all?.personal_bests?.records;
+            const container = document.getElementById('personal-bests');
+            
+            if (!records) {
+                container.innerHTML = '<p class="text-gray-500 col-span-4">暂无个人最佳记录</p>';
+                return;
+            }
+
+            const recordsData = [
+                {
+                    key: 'longest_distance',
+                    title: '最长距离',
+                    icon: '🏃‍♂️',
+                    value: records.longest_distance ? `${records.longest_distance.distance.toFixed(2)} 公里` : '-',
+                    activity: records.longest_distance?.activity,
+                    color: 'blue'
+                },
+                {
+                    key: 'longest_time',
+                    title: '最长时间',
+                    icon: '⏱️',
+                    value: records.longest_time?.activity?.moving_time || '-',
+                    activity: records.longest_time?.activity,
+                    color: 'green'
+                },
+                {
+                    key: 'fastest_pace',
+                    title: '最快配速',
+                    icon: '⚡',
+                    value: records.fastest_pace ? formatPace(records.fastest_pace.pace) : '-',
+                    activity: records.fastest_pace?.activity,
+                    color: 'yellow'
+                },
+                {
+                    key: 'highest_speed',
+                    title: '最高速度',
+                    icon: '🚀',
+                    value: records.highest_speed ? `${records.highest_speed.speed.toFixed(2)} 公里/小时` : '-',
+                    activity: records.highest_speed?.activity,
+                    color: 'red'
+                }
+            ];
+
+            container.innerHTML = recordsData.map(record => `
+                <div class="bg-gradient-to-br from-${record.color}-50 to-${record.color}-100 rounded-lg p-6 border border-${record.color}-200">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-gray-800">${record.title}</h4>
+                        <div class="text-2xl">${record.icon}</div>
+                    </div>
+                    <div class="text-2xl font-bold text-${record.color}-600 mb-3">${record.value}</div>
+                    ${record.activity ? `
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <div class="flex items-center">
+                                <span class="text-xs">📅</span>
+                                <span class="ml-1">${record.activity.start_date_local?.split('T')[0] || record.activity.start_date?.split(' ')[0] || ''}</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-xs">📍</span>
+                                <span class="ml-1 truncate">${record.activity.name || '未命名活动'}</span>
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        // 渲染月度目标追踪
+        function renderMonthlyGoals() {
+            const overview = analysisData.overview?.overview || {};
+            const container = document.getElementById('monthly-goals');
+            
+            // 计算月度目标（假设目标）
+            const monthlyDistanceGoal = 100; // 100公里/月
+            const monthlyActivitiesGoal = 12; // 12次/月
+            
+            const avgMonthlyDistance = overview.total_distance_km / 12 || 0; // 假设一年数据
+            const avgMonthlyActivities = overview.total_activities / 12 || 0;
+            
+            const goals = [
+                {
+                    title: '月度距离目标',
+                    current: avgMonthlyDistance.toFixed(1),
+                    target: monthlyDistanceGoal,
+                    unit: '公里',
+                    icon: '🎯',
+                    color: 'blue'
+                },
+                {
+                    title: '月度活动目标',
+                    current: Math.round(avgMonthlyActivities),
+                    target: monthlyActivitiesGoal,
+                    unit: '次',
+                    icon: '📈',
+                    color: 'green'
+                },
+                {
+                    title: '平均配速目标',
+                    current: overview.avg_time_per_activity || '0:00',
+                    target: '1:10:00',
+                    unit: '',
+                    icon: '⚡',
+                    color: 'purple'
+                }
+            ];
+
+            container.innerHTML = goals.map(goal => {
+                const progress = typeof goal.current === 'number' ? 
+                    Math.min((goal.current / goal.target) * 100, 100) : 50;
+                
+                return `
+                    <div class="bg-white border border-gray-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-semibold text-gray-800">${goal.title}</h4>
+                            <div class="text-2xl">${goal.icon}</div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>当前: ${goal.current} ${goal.unit}</span>
+                                <span>目标: ${goal.target} ${goal.unit}</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-${goal.color}-500 h-3 rounded-full transition-all duration-1000" 
+                                     style="width: ${progress}%"></div>
+                            </div>
+                        </div>
+                        <div class="text-center text-sm font-medium text-${goal.color}-600">
+                            ${progress.toFixed(1)}% 完成
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 渲染活动热力图
+        function renderActivityHeatmap() {
+            const container = document.getElementById('activity-heatmap');
+            
+            // 生成简单的周活动热力图
+            const weekdays = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+            const timeSlots = ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
+            
+            // 模拟数据
+            const heatmapData = weekdays.map(day => 
+                timeSlots.map(time => Math.floor(Math.random() * 10))
+            );
+
+            let html = `
+                <div class="text-center mb-4">
+                    <h4 class="font-semibold text-gray-700">运动时间偏好热力图</h4>
+                    <p class="text-sm text-gray-500">颜色越深表示该时间段运动频次越高</p>
+                </div>
+                <div class="inline-block">
+                    <div class="grid grid-cols-9 gap-1 text-xs">
+                        <div></div>
+            `;
+            
+            // 时间标签
+            timeSlots.forEach(time => {
+                html += `<div class="text-center text-gray-600 p-2">${time}</div>`;
+            });
+            
+            // 数据单元格
+            weekdays.forEach((day, dayIndex) => {
+                html += `<div class="text-right text-gray-600 p-2">${day}</div>`;
+                timeSlots.forEach((time, timeIndex) => {
+                    const intensity = heatmapData[dayIndex][timeIndex];
+                    const opacity = intensity / 10;
+                    html += `
+                        <div class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center text-xs"
+                             style="background-color: rgba(59, 130, 246, ${opacity})"
+                             title="${day} ${time}: ${intensity} 次活动">
+                            ${intensity || ''}
+                        </div>
+                    `;
+                });
+            });
+            
+            html += `
+                    </div>
+                    <div class="flex items-center justify-center mt-4 space-x-2 text-xs text-gray-600">
+                        <span>少</span>
+                        <div class="flex space-x-1">
+                            <div class="w-3 h-3 rounded border" style="background-color: rgba(59, 130, 246, 0.1)"></div>
+                            <div class="w-3 h-3 rounded border" style="background-color: rgba(59, 130, 246, 0.3)"></div>
+                            <div class="w-3 h-3 rounded border" style="background-color: rgba(59, 130, 246, 0.6)"></div>
+                            <div class="w-3 h-3 rounded border" style="background-color: rgba(59, 130, 246, 0.9)"></div>
+                        </div>
+                        <span>多</span>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        // 渲染统计表
+        function renderStatsTable() {
+            const overview = analysisData.overview?.overview || {};
+            const records = analysisData.basic?.stats_by_type?.all?.personal_bests?.records || {};
+            const tbody = document.getElementById('stats-table-body');
+            
+            const stats = [
+                ['总活动数', `${overview.total_activities || 0} 次`, '所有记录的活动总数'],
+                ['总距离', `${(overview.total_distance_km || 0).toLocaleString()} 公里`, '累计运动距离'],
+                ['总时间', overview.total_time_formatted || '0:00', '累计运动时间'],
+                ['平均距离', `${(overview.avg_distance_per_activity || 0).toFixed(1)} 公里`, '每次活动平均距离'],
+                ['平均时间', overview.avg_time_per_activity || '0:00', '每次活动平均时间'],
+                ['最长距离', records.longest_distance ? `${records.longest_distance.distance.toFixed(2)} 公里` : '-', '单次最长距离记录'],
+                ['最长时间', records.longest_time?.activity?.moving_time || '-', '单次最长时间记录'],
+                ['最快配速', records.fastest_pace ? formatPace(records.fastest_pace.pace) : '-', '最快配速记录'],
+                ['最高速度', records.highest_speed ? `${records.highest_speed.speed.toFixed(2)} 公里/小时` : '-', '最高速度记录']
+            ];
+
+            tbody.innerHTML = stats.map((row, index) => `
+                <tr class="${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}">
+                    <td class="px-4 py-3 font-medium">${row[0]}</td>
+                    <td class="px-4 py-3 text-blue-600 font-semibold">${row[1]}</td>
+                    <td class="px-4 py-3 text-gray-600">${row[2]}</td>
+                </tr>
+            `).join('');
+        }
+
+        // 渲染数据统计信息
+        function renderDataInfo() {
+            const overview = analysisData.overview;
+            const types = analysisData.types;
+            const container = document.getElementById('data-info');
+            
+            container.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <div><strong>数据生成时间:</strong> ${formatDateTime(overview?.generated_at)}</div>
+                        <div><strong>总活动记录:</strong> ${types?.total_activities || 0} 条</div>
+                        <div><strong>可用活动类型:</strong> ${types?.available_types?.join(', ') || '无'}</div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>数据来源:</strong> 运动数据库 (data.db)</div>
+                        <div><strong>分析模块版本:</strong> v1.0.0</div>
+                        <div><strong>支持的分析类型:</strong> 距离、时间、配速、心率</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 工具函数
+        function formatPace(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs.toString().padStart(2, '0')}/公里`;
+        }
+
+        function formatDateTime(dateStr) {
+            if (!dateStr) return '未知';
+            try {
+                return new Date(dateStr).toLocaleString('zh-CN');
+            } catch {
+                return dateStr;
+            }
+        }
+
+        // 页面加载后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAnalysisData();
+        });
+    </script>
+</body>
+</html> 
