@@ -206,7 +206,7 @@ const Index = () => {
                   <p className="text-gray-600 mb-4">深入了解您的运动表现，发现运动规律和趋势</p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a 
-                      href="/analysis.html" 
+                      href="./analysis.html" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"

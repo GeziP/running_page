@@ -38,7 +38,7 @@
                 <button onclick="refreshData()" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-colors">
                     🔄 刷新数据
                 </button>
-                <a href="/index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="./" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
                     ← 返回主页
                 </a>
             </div>
@@ -178,9 +178,9 @@
                 showLoading(true);
                 
                 const [overviewRes, typesRes, basicRes] = await Promise.allSettled([
-                    fetch('/src/static/analysis/analysis_overview.json'),
-                    fetch('/src/static/analysis/activity_types.json'),
-                    fetch('/src/static/analysis/basic_statistics.json')
+                    fetch('./src/static/analysis/analysis_overview.json'),
+                    fetch('./src/static/analysis/activity_types.json'),
+                    fetch('./src/static/analysis/basic_statistics.json')
                 ]);
 
                 if (overviewRes.status === 'fulfilled' && overviewRes.value.ok) {
@@ -222,7 +222,7 @@
                                     class="block w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
                                 🔄 重新加载
                             </button>
-                            <a href="/index.html" class="block w-full bg-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium text-decoration-none">
+                            <a href="./" class="block w-full bg-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium text-decoration-none">
                                 🏠 返回主页
                             </a>
                             <div class="text-sm text-gray-500 mt-4">
