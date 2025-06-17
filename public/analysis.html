@@ -177,10 +177,22 @@
             try {
                 showLoading(true);
                 
+                // 调试信息
+                console.log('当前页面URL:', window.location.href);
+                console.log('尝试加载数据文件...');
+                
+                const urls = [
+                    './static/analysis/analysis_overview.json',
+                    './static/analysis/activity_types.json', 
+                    './static/analysis/basic_statistics.json'
+                ];
+                
+                urls.forEach(url => console.log('数据文件URL:', new URL(url, window.location.href).href));
+                
                 const [overviewRes, typesRes, basicRes] = await Promise.allSettled([
-                    fetch('./src/static/analysis/analysis_overview.json'),
-                    fetch('./src/static/analysis/activity_types.json'),
-                    fetch('./src/static/analysis/basic_statistics.json')
+                    fetch(urls[0]),
+                    fetch(urls[1]),
+                    fetch(urls[2])
                 ]);
 
                 if (overviewRes.status === 'fulfilled' && overviewRes.value.ok) {
@@ -199,7 +211,7 @@
                 showLoading(false);
             } catch (error) {
                 console.error('加载分析数据失败:', error);
-                showError('数据加载失败，请检查数据文件是否存在');
+                showError(`数据加载失败: ${error.message}`);
             }
         }
 

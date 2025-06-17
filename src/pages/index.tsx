@@ -214,29 +214,13 @@ const Index = () => {
                     >
                       🔬 完整分析报告
                     </a>
-                    <button 
-                      onClick={() => {
-                        // 打开数据文件夹显示分析结果
-                        const features = [
-                          '✅ 364条活动记录分析完成',
-                          '📊 总距离：4229.3公里',
-                          '⏱️ 总时间：463小时22分54秒',
-                          '🏃‍♂️ 距离分布：40.4% (5-10km), 39.6% (10-20km)',
-                          '🎯 个人最佳：最长51.75km，最快配速记录',
-                          '📈 支持活动类型分类和趋势分析',
-                          '',
-                          '📂 数据文件位置：',
-                          '• src/static/analysis/activity_types.json',
-                          '• src/static/analysis/basic_statistics.json', 
-                          '• src/static/analysis/analysis_overview.json',
-                          '• src/static/analysis/recent_summary.json'
-                        ];
-                        alert('🎉 数据分析功能开发完成！\n\n' + features.join('\n'));
-                      }}
+                    <a 
+                      href="./analysis.html"
                       className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                      title="查看数据分析摘要"
                     >
                       📈 查看数据摘要
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

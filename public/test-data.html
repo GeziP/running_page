@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据测试页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 数据文件测试页面</h1>
+    <p>测试分析数据文件是否可以正确访问</p>
+    
+    <div id="test-results"></div>
+    
+    <script>
+        async function testDataFiles() {
+            const files = [
+                'analysis_overview.json',
+                'activity_types.json',
+                'basic_statistics.json',
+                'recent_summary.json'
+            ];
+            
+            const resultsDiv = document.getElementById('test-results');
+            
+            for (const file of files) {
+                try {
+                    const response = await fetch(`./static/analysis/${file}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        resultsDiv.innerHTML += `
+                            <div class="test-result success">
+                                ✅ ${file} - 加载成功
+                                <pre>${JSON.stringify(data, null, 2).substring(0, 200)}...</pre>
+                            </div>
+                        `;
+                    } else {
+                        resultsDiv.innerHTML += `
+                            <div class="test-result error">
+                                ❌ ${file} - HTTP ${response.status}: ${response.statusText}
+                            </div>
+                        `;
+                    }
+                } catch (error) {
+                    resultsDiv.innerHTML += `
+                        <div class="test-result error">
+                            ❌ ${file} - 加载失败: ${error.message}
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        // 页面加载后执行测试
+        window.addEventListener('load', testDataFiles);
+    </script>
+</body>
+</html> 

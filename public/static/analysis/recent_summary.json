@@ -1,0 +1,45 @@
+{
+  "generated_at": "2025-06-17T00:33:38.883531",
+  "recent_summaries": {
+    "all": {
+      "weekly": {
+        "period_type": "weekly",
+        "activity_type": "all",
+        "data": {},
+        "summary": {}
+      },
+      "monthly": {
+        "period_type": "monthly",
+        "activity_type": "all",
+        "data": {},
+        "summary": {}
+      },
+      "yearly": {
+        "period_type": "yearly",
+        "activity_type": "all",
+        "data": {},
+        "summary": {}
+      }
+    },
+    "running": {
+      "weekly": {
+        "period_type": "weekly",
+        "activity_type": "running",
+        "data": {},
+        "summary": {}
+      },
+      "monthly": {
+        "period_type": "monthly",
+        "activity_type": "running",
+        "data": {},
+        "summary": {}
+      },
+      "yearly": {
+        "period_type": "yearly",
+        "activity_type": "running",
+        "data": {},
+        "summary": {}
+      }
+    }
+  }
+}
