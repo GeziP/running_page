@@ -2,10 +2,7 @@
   "generated_at": "2025-06-17T11:08:10.897138",
   "overview": {
     "total_activities": 364,
-    "available_types": [
-      "running",
-      "trail_running"
-    ],
+    "available_types": ["running", "trail_running"],
     "total_distance_km": 4229.3,
     "total_time_seconds": 1668174,
     "total_time_formatted": "463:22:54",

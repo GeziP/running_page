@@ -12,9 +12,9 @@ const Charts: React.FC<ChartsProps> = ({
 }) => {
   return (
     <div className="charts-container space-y-6">
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-lg font-semibold mb-4">📊 图表分析</h3>
-        <div className="text-center text-gray-500 py-8">
+      <div className="rounded-lg bg-white p-6 shadow-md">
+        <h3 className="mb-4 text-lg font-semibold">📊 图表分析</h3>
+        <div className="py-8 text-center text-gray-500">
           📈 图表功能正在开发中，敬请期待！
         </div>
       </div>
