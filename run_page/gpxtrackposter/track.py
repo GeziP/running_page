@@ -183,8 +183,19 @@ class Track:
         if self.end_time is None:
             raise TrackLoadError("Track has no end time.")
         self.length = gpx.length_2d()
-        if self.length == 0:
+        
+        # 读取GPX文件中的活动类型信息
+        has_type_info = False
+        for t in gpx.tracks:
+            if hasattr(t, 'type') and t.type:
+                self.type = t.type
+                has_type_info = True
+                break
+        
+        # 对于有类型信息但没有轨迹的活动（如跑步机），允许长度为0
+        if self.length == 0 and not has_type_info:
             raise TrackLoadError("Track is empty.")
+        
         gpx.simplify()
         polyline_container = []
         heart_rate_list = []
@@ -336,7 +347,7 @@ class Track:
                 if self.device
                 else f"run from {run_from}"
             ),  # maybe change later
-            "type": "Run",  # Run for now only support run for now maybe change later
+            "type": self.type,  # 使用从GPX文件中读取的实际活动类型
             "start_date": self.start_time.strftime("%Y-%m-%d %H:%M:%S"),
             "end": self.end_time.strftime("%Y-%m-%d %H:%M:%S"),
             "start_date_local": self.start_time_local.strftime("%Y-%m-%d %H:%M:%S"),

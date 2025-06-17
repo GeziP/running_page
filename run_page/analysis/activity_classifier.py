@@ -8,11 +8,11 @@ from collections import defaultdict
 
 # 活动类型映射配置
 ACTIVITY_TYPES = {
-    'running': ['Run', 'Treadmill'],
-    'trail_running': ['TrailRun', 'Hike'],
-    'cycling': ['Ride', 'VirtualRide', 'EBikeRide'],
-    'walking': ['Walk'],
-    'all': ['Run', 'Treadmill', 'TrailRun', 'Hike', 'Ride', 'VirtualRide', 'EBikeRide', 'Walk']
+    'running': ['Run', 'Treadmill', 'running', 'treadmill_running'],
+    'trail_running': ['TrailRun', 'Hike', 'trail_running'],
+    'cycling': ['Ride', 'VirtualRide', 'EBikeRide', 'cycling', 'biking'],
+    'walking': ['Walk', 'walking', 'hiking'],
+    'all': ['Run', 'Treadmill', 'running', 'treadmill_running', 'TrailRun', 'Hike', 'trail_running', 'Ride', 'VirtualRide', 'EBikeRide', 'cycling', 'biking', 'Walk', 'walking', 'hiking']
 }
 
 # 活动类型中文名称
