@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-06-17T00:33:38.871356",
+  "generated_at": "2025-06-17T09:34:32.325015",
   "stats_by_type": {
     "all": {
       "weekly": {
@@ -66,7 +66,7 @@
               "name": "run from gpx",
               "distance": 51748.563459066194,
               "moving_time": "2:31:37",
-              "type": "Run",
+              "type": "cycling",
               "start_date": "2024-02-08 05:15:31",
               "start_date_local": "2024-02-08 13:15:31",
               "location_country": "东栅街道, 南湖区, 嘉兴市, 浙江省, 314001, 中国",
@@ -83,7 +83,7 @@
               "name": "run from gpx",
               "distance": 34880.04477368625,
               "moving_time": "8:05:13",
-              "type": "Run",
+              "type": "trail_running",
               "start_date": "2020-12-06 00:01:16",
               "start_date_local": "2020-12-06 08:01:16",
               "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
@@ -94,20 +94,20 @@
             }
           },
           "fastest_pace": {
-            "pace": 149.8054346316722,
+            "pace": 254.52276467867787,
             "activity": {
-              "run_id": 1723628270000,
+              "run_id": 1616287392000,
               "name": "run from gpx",
-              "distance": 20519.949810619808,
-              "moving_time": "0:51:14",
+              "distance": 50714.52062960143,
+              "moving_time": "3:35:08",
               "type": "Run",
-              "start_date": "2024-08-14 09:37:50",
-              "start_date_local": "2024-08-14 17:37:50",
-              "location_country": "南湖区, 嘉兴市, 浙江省, 中国",
-              "summary_polyline": "ypszDqgm`VmW{Cgk@uRaPiC}ZcDuGKyHz@oGvByq@p`@ma@qW}_@kc@eHkNcOab@mEsGaG_MgYqu@aJ}OqJaMaOgNaQmKya@yOaSyJ{@U_@h@Zl@nPdIr_@nNdI|DlObKjLbLxJpMnItO``@vdAxBnDlClBhOla@pFhK|DlFzZ|\\lj@f^~ElEjDtEzDlI`Pri@pNlwAdAnGt@JzRoF~UO`Hf@rAh@B\\@rO",
-              "average_heartrate": 140.0,
-              "average_speed": 6.675325247436502,
-              "streak": 2
+              "start_date": "2021-03-21 00:43:12",
+              "start_date_local": "2021-03-21 08:43:12",
+              "location_country": "X119, 南湖区, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "oe_zDicl`V`L}BbyB_k@fVmJtMgHhy@kk@lQiJlMcFdv@_TfSaD~XsA`H}@|qAo]hj@uJzP}D|\\iNf_@sUxMuFvOwBdUK`dA}E`KFfFb@v@b@d@UdA^x]~@|WzAxu@vAtw@hClUpC`g@zIzMbEfIrFhH`JdSr\\fFrEvHlBtJh@hHi@bYD`d@x@|^Irf@`AhVGp_@f@zMs@hQgEpGWzD`@tDxArNpLzH~Cb}@rB~Ku@`F_ApHkCjHu@dBXdAIBWB`@UGZJQWh@KpjADPaCQmAgDmGiD{Jc@gChKmf@CsC{A_EOyCtAqHxEmJjCu\\KyFnJsAxIc@~a@yGpBnTx@~@~@~KTOXj@o@A|@zDxDF~CbBdBjG`Cl@bEq@jHbA|A~CtCf@pKsMfBoIpFqAdAn@rGpJdCvItC`GdRfS?x@}@rBwK|MaByAy@yBkBqMsAqB_Bu@iBAaBv@mEaBmAJqDnCsDjHEbFdApF~A~DbEvEQLNQn@p@b@bBtB|PKhBo@lA|@l@tF`UlEtMxAzBfB~KFdAk@z@\\\\hBCdAlBY_Dh@uIk@wIu@aCUgGdAgBvDwB`B_C~Cq@h@k@LcAu@yBImDo@aA_@^`@@YGV[h@bA@dDfAbCSv@cEfBaDhEuBn@s@`ADjGbAbHEjOVjDoAkAsBQCsGoSor@XaDU}EeB_Li@i@O|A?}BRBkEeEeDyHCoK~BkGrEoDrAIhD~A~Eq@|A|@lAfBnAbEd@pHpC|DfBeBbKmPoRmSsGeQ{HkLwEp@gBbDYvDaAfCqF|D]`AsBbBkBo@qAcCqDWwB{@uDjAoCa@qCqF{GuDmBcCSXLi@_NyzAj@qCnFuDpDs@Ci@aBb@oLoKkA{B{@oEk@y@J]o@J~@O_@bAZ_Ae@?",
+              "average_heartrate": 136.0,
+              "average_speed": 3.9289216477844304,
+              "streak": 1
             }
           },
           "highest_speed": {
@@ -117,7 +117,7 @@
               "name": "run from gpx",
               "distance": 20519.949810619808,
               "moving_time": "0:51:14",
-              "type": "Run",
+              "type": "cycling",
               "start_date": "2024-08-14 09:37:50",
               "start_date_local": "2024-08-14 17:37:50",
               "location_country": "南湖区, 嘉兴市, 浙江省, 中国",
@@ -151,37 +151,37 @@
       },
       "distance_distribution": {
         "activity_type": "running",
-        "total_activities": 364,
+        "total_activities": 316,
         "distribution": {
           "0-5公里": {
             "count": 29,
             "total_distance": 106.0,
-            "percentage": 8.0
+            "percentage": 9.2
           },
           "5-10公里": {
-            "count": 147,
-            "total_distance": 1073.58,
-            "percentage": 40.4
+            "count": 127,
+            "total_distance": 934.01,
+            "percentage": 40.2
           },
           "10-20公里": {
-            "count": 144,
-            "total_distance": 1877.3,
-            "percentage": 39.6
+            "count": 137,
+            "total_distance": 1769.81,
+            "percentage": 43.4
           },
           "20-30公里": {
-            "count": 36,
-            "total_distance": 828.14,
-            "percentage": 9.9
+            "count": 20,
+            "total_distance": 450.3,
+            "percentage": 6.3
           },
           "30-50公里": {
-            "count": 6,
-            "total_distance": 241.83,
-            "percentage": 1.6
+            "count": 2,
+            "total_distance": 85.09,
+            "percentage": 0.6
           },
           "50公里以上": {
-            "count": 2,
-            "total_distance": 102.46,
-            "percentage": 0.5
+            "count": 1,
+            "total_distance": 50.71,
+            "percentage": 0.3
           }
         }
       },
@@ -189,20 +189,149 @@
         "activity_type": "running",
         "records": {
           "longest_distance": {
-            "distance": 51.7485634590662,
+            "distance": 50.71452062960143,
             "activity": {
-              "run_id": 1707369331000,
+              "run_id": 1616287392000,
               "name": "run from gpx",
-              "distance": 51748.563459066194,
-              "moving_time": "2:31:37",
+              "distance": 50714.52062960143,
+              "moving_time": "3:35:08",
               "type": "Run",
-              "start_date": "2024-02-08 05:15:31",
-              "start_date_local": "2024-02-08 13:15:31",
-              "location_country": "东栅街道, 南湖区, 嘉兴市, 浙江省, 314001, 中国",
-              "summary_polyline": "sopzDoed`VMaAo@a@oAIiChAebAh@SWPoYxBgYY_DhAeMTwW`@kDSq@b@mv@z@_j@y@{`@Yad@RqK`AsLhBu{@bCuw@a@eGkA_FiV}b@cAwCuOkYUqB~@iBxM{HvIoG`QgPpLiRfLiTnEuFZmAfBaCjEyElDcCbDmAhRcClEsDrk@inAd^{eAdXmv@zEqm@~DwzA~`@yuCwBuw@q@iEsGkSq@yGlDehAAyk@DaBn@oB[uAZ}A]mA?sXh@yD|GkTxD}JlHoMlCsG|CcUrAqQJeNrAsHj@sHaB_t@re@_d@dQaNjCgCPaAuTgs@kEqJ_OkU{DiKgHq^kAkLFoKrCs[KiKmAiIgFaOm^gg@yD}JeXcuAe_@g`DsAsFsByEwNiOwBmFk@uGo@_XToAM{AXk@[_B?iFlB_bA@}d@e@ws@uB_aAyEee@aEwKaBwAuKiRwPmr@mByDgCwCoZeS_F_Cy\\aFoQaB{XoAiEoBiGyFiG_E{EuB}IwBcj@_FgH@sExAkYpQiOs_@kG_a@e@IeDtAgCwK}D_E{HkQa@EoAx@",
-              "average_heartrate": 141.0,
-              "average_speed": 5.688530664951764,
-              "streak": 2
+              "start_date": "2021-03-21 00:43:12",
+              "start_date_local": "2021-03-21 08:43:12",
+              "location_country": "X119, 南湖区, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "oe_zDicl`V`L}BbyB_k@fVmJtMgHhy@kk@lQiJlMcFdv@_TfSaD~XsA`H}@|qAo]hj@uJzP}D|\\iNf_@sUxMuFvOwBdUK`dA}E`KFfFb@v@b@d@UdA^x]~@|WzAxu@vAtw@hClUpC`g@zIzMbEfIrFhH`JdSr\\fFrEvHlBtJh@hHi@bYD`d@x@|^Irf@`AhVGp_@f@zMs@hQgEpGWzD`@tDxArNpLzH~Cb}@rB~Ku@`F_ApHkCjHu@dBXdAIBWB`@UGZJQWh@KpjADPaCQmAgDmGiD{Jc@gChKmf@CsC{A_EOyCtAqHxEmJjCu\\KyFnJsAxIc@~a@yGpBnTx@~@~@~KTOXj@o@A|@zDxDF~CbBdBjG`Cl@bEq@jHbA|A~CtCf@pKsMfBoIpFqAdAn@rGpJdCvItC`GdRfS?x@}@rBwK|MaByAy@yBkBqMsAqB_Bu@iBAaBv@mEaBmAJqDnCsDjHEbFdApF~A~DbEvEQLNQn@p@b@bBtB|PKhBo@lA|@l@tF`UlEtMxAzBfB~KFdAk@z@\\\\hBCdAlBY_Dh@uIk@wIu@aCUgGdAgBvDwB`B_C~Cq@h@k@LcAu@yBImDo@aA_@^`@@YGV[h@bA@dDfAbCSv@cEfBaDhEuBn@s@`ADjGbAbHEjOVjDoAkAsBQCsGoSor@XaDU}EeB_Li@i@O|A?}BRBkEeEeDyHCoK~BkGrEoDrAIhD~A~Eq@|A|@lAfBnAbEd@pHpC|DfBeBbKmPoRmSsGeQ{HkLwEp@gBbDYvDaAfCqF|D]`AsBbBkBo@qAcCqDWwB{@uDjAoCa@qCqF{GuDmBcCSXLi@_NyzAj@qCnFuDpDs@Ci@aBb@oLoKkA{B{@oEk@y@J]o@J~@O_@bAZ_Ae@?",
+              "average_heartrate": 136.0,
+              "average_speed": 3.9289216477844304,
+              "streak": 1
+            }
+          },
+          "longest_time": {
+            "time": 20451,
+            "activity": {
+              "run_id": 1681599681000,
+              "name": "run from gpx",
+              "distance": 25281.55034120274,
+              "moving_time": "5:40:51",
+              "type": "running",
+              "start_date": "2023-04-15 23:01:21",
+              "start_date_local": "2023-04-16 07:01:21",
+              "location_country": "Discovery园区道路, 莫平山镇, 德清县, 湖州市, 浙江省, 中国",
+              "summary_polyline": "__yyDe{xzUj@j@mArBJjDzC|AfG?v@ZpObN~EvCQbIl@pAp@O~BgFzFqGrJoBhDK|CfAfAoAzCw@vEkIxE|@rD_BjDHh@k@bBInD^v@]jErC`CtCbBa@HjImEzDx@hKMrJ~A~@nA~CTpBWNZMe@}@uEjAGlCtBbH~@p@hA~DhCvDDnGiDxGSdHo@rAwCrQaBfCsDtCs@~Aq@\\sCW`IvH{@lCx@hBzAnBdEdBhAzDvAx@c@dEh@xH|A`DbHdHVdAe@pCuDq@gGpBBdAWDd@QG\\[WBV]Db@KYa@`@BF[cA?aB~By@pD_CvEeCdC_AnC{FvDw@pC}EvCmBjCeGr@wAdC|@`ACx@yClGVrCyAw@DdBsA\\s@fB}BbBj@tDI`DtDtEPbEXj@xFhD|BhGKlBmCbAaAUo@hAkBhAwDVmBx@yBhBiIbMwDjDqAyAKeCWEw@tJgBnKsAg@?z@wAdCwCrCOdA{EpEU`EyA`@gCSmAr@]pIiBrE{DgC?uCiA{CaAMeEaGYmBcE{FJk@e@{AiARkA}@}GyB_HrBgDMa@f@yCNwBpA_BFqCk@iBDuA_B_Bc@yHQuA~@mBI{BvCyAjENrCc@lEs@r@aBfGKvCc@nBcAtAIjAsAWVKMVSe@q@sEgDwEkByEiDi@oAnCoEjBRvEyDvJwAAiA{DsCsAkD`BsBVeCvDeCx@{C_EqAk@iB`Aq@vCwDdEyEgBsAaCq@KeHgGtApDBlJc@r@So@_Do@cA_Er@iDe@aDX{A}BgElAcEcCeEEoA|@oAtBQ|CsAdAiO_AyH_BwGmEm@EkBm@_BL_Ca@{B{CD_@m@fBeAzA}BC}Ag@yAHeAlEyCrBuFlB]fB_CcCh@kDu@gGvF{Fi@c@}ADy@vBuEmAmF^_G`@eASs@d@eAi@_A]sCJ}C\\Y[cAV_AOm@_BD`@kAuBuECgA`@[Wi@dHwGfCuJzAuAdCw@ZcHd@QlBp@l@cDrAeAWmGdFuGCgBTL|BaC`Bq@fAx@SH`DFlG]|@sAxBVDoF^eBfAClAjAfDh@fA]Jw@",
+              "average_heartrate": 156.0,
+              "average_speed": 1.236201180441188,
+              "streak": 1
+            }
+          },
+          "fastest_pace": {
+            "pace": 254.52276467867787,
+            "activity": {
+              "run_id": 1616287392000,
+              "name": "run from gpx",
+              "distance": 50714.52062960143,
+              "moving_time": "3:35:08",
+              "type": "Run",
+              "start_date": "2021-03-21 00:43:12",
+              "start_date_local": "2021-03-21 08:43:12",
+              "location_country": "X119, 南湖区, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "oe_zDicl`V`L}BbyB_k@fVmJtMgHhy@kk@lQiJlMcFdv@_TfSaD~XsA`H}@|qAo]hj@uJzP}D|\\iNf_@sUxMuFvOwBdUK`dA}E`KFfFb@v@b@d@UdA^x]~@|WzAxu@vAtw@hClUpC`g@zIzMbEfIrFhH`JdSr\\fFrEvHlBtJh@hHi@bYD`d@x@|^Irf@`AhVGp_@f@zMs@hQgEpGWzD`@tDxArNpLzH~Cb}@rB~Ku@`F_ApHkCjHu@dBXdAIBWB`@UGZJQWh@KpjADPaCQmAgDmGiD{Jc@gChKmf@CsC{A_EOyCtAqHxEmJjCu\\KyFnJsAxIc@~a@yGpBnTx@~@~@~KTOXj@o@A|@zDxDF~CbBdBjG`Cl@bEq@jHbA|A~CtCf@pKsMfBoIpFqAdAn@rGpJdCvItC`GdRfS?x@}@rBwK|MaByAy@yBkBqMsAqB_Bu@iBAaBv@mEaBmAJqDnCsDjHEbFdApF~A~DbEvEQLNQn@p@b@bBtB|PKhBo@lA|@l@tF`UlEtMxAzBfB~KFdAk@z@\\\\hBCdAlBY_Dh@uIk@wIu@aCUgGdAgBvDwB`B_C~Cq@h@k@LcAu@yBImDo@aA_@^`@@YGV[h@bA@dDfAbCSv@cEfBaDhEuBn@s@`ADjGbAbHEjOVjDoAkAsBQCsGoSor@XaDU}EeB_Li@i@O|A?}BRBkEeEeDyHCoK~BkGrEoDrAIhD~A~Eq@|A|@lAfBnAbEd@pHpC|DfBeBbKmPoRmSsGeQ{HkLwEp@gBbDYvDaAfCqF|D]`AsBbBkBo@qAcCqDWwB{@uDjAoCa@qCqF{GuDmBcCSXLi@_NyzAj@qCnFuDpDs@Ci@aBb@oLoKkA{B{@oEk@y@J]o@J~@O_@bAZ_Ae@?",
+              "average_heartrate": 136.0,
+              "average_speed": 3.9289216477844304,
+              "streak": 1
+            }
+          },
+          "highest_speed": {
+            "speed": 3.9289216477844304,
+            "activity": {
+              "run_id": 1616287392000,
+              "name": "run from gpx",
+              "distance": 50714.52062960143,
+              "moving_time": "3:35:08",
+              "type": "Run",
+              "start_date": "2021-03-21 00:43:12",
+              "start_date_local": "2021-03-21 08:43:12",
+              "location_country": "X119, 南湖区, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "oe_zDicl`V`L}BbyB_k@fVmJtMgHhy@kk@lQiJlMcFdv@_TfSaD~XsA`H}@|qAo]hj@uJzP}D|\\iNf_@sUxMuFvOwBdUK`dA}E`KFfFb@v@b@d@UdA^x]~@|WzAxu@vAtw@hClUpC`g@zIzMbEfIrFhH`JdSr\\fFrEvHlBtJh@hHi@bYD`d@x@|^Irf@`AhVGp_@f@zMs@hQgEpGWzD`@tDxArNpLzH~Cb}@rB~Ku@`F_ApHkCjHu@dBXdAIBWB`@UGZJQWh@KpjADPaCQmAgDmGiD{Jc@gChKmf@CsC{A_EOyCtAqHxEmJjCu\\KyFnJsAxIc@~a@yGpBnTx@~@~@~KTOXj@o@A|@zDxDF~CbBdBjG`Cl@bEq@jHbA|A~CtCf@pKsMfBoIpFqAdAn@rGpJdCvItC`GdRfS?x@}@rBwK|MaByAy@yBkBqMsAqB_Bu@iBAaBv@mEaBmAJqDnCsDjHEbFdApF~A~DbEvEQLNQn@p@b@bBtB|PKhBo@lA|@l@tF`UlEtMxAzBfB~KFdAk@z@\\\\hBCdAlBY_Dh@uIk@wIu@aCUgGdAgBvDwB`B_C~Cq@h@k@LcAu@yBImDo@aA_@^`@@YGV[h@bA@dDfAbCSv@cEfBaDhEuBn@s@`ADjGbAbHEjOVjDoAkAsBQCsGoSor@XaDU}EeB_Li@i@O|A?}BRBkEeEeDyHCoK~BkGrEoDrAIhD~A~Eq@|A|@lAfBnAbEd@pHpC|DfBeBbKmPoRmSsGeQ{HkLwEp@gBbDYvDaAfCqF|D]`AsBbBkBo@qAcCqDWwB{@uDjAoCa@qCqF{GuDmBcCSXLi@_NyzAj@qCnFuDpDs@Ci@aBb@oLoKkA{B{@oEk@y@J]o@J~@O_@bAZ_Ae@?",
+              "average_heartrate": 136.0,
+              "average_speed": 3.9289216477844304,
+              "streak": 1
+            }
+          }
+        }
+      }
+    },
+    "trail_running": {
+      "weekly": {
+        "period_type": "weekly",
+        "activity_type": "trail_running",
+        "data": {},
+        "summary": {}
+      },
+      "monthly": {
+        "period_type": "monthly",
+        "activity_type": "trail_running",
+        "data": {},
+        "summary": {}
+      },
+      "yearly": {
+        "period_type": "yearly",
+        "activity_type": "trail_running",
+        "data": {},
+        "summary": {}
+      },
+      "distance_distribution": {
+        "activity_type": "trail_running",
+        "total_activities": 12,
+        "distribution": {
+          "0-5公里": {
+            "count": 0,
+            "total_distance": 0,
+            "percentage": 0.0
+          },
+          "5-10公里": {
+            "count": 0,
+            "total_distance": 0,
+            "percentage": 0.0
+          },
+          "10-20公里": {
+            "count": 3,
+            "total_distance": 37.47,
+            "percentage": 25.0
+          },
+          "20-30公里": {
+            "count": 7,
+            "total_distance": 167.64,
+            "percentage": 58.3
+          },
+          "30-50公里": {
+            "count": 2,
+            "total_distance": 65.63,
+            "percentage": 16.7
+          },
+          "50公里以上": {
+            "count": 0,
+            "total_distance": 0,
+            "percentage": 0.0
+          }
+        }
+      },
+      "personal_bests": {
+        "activity_type": "trail_running",
+        "records": {
+          "longest_distance": {
+            "distance": 34.88004477368625,
+            "activity": {
+              "run_id": 1607212876000,
+              "name": "run from gpx",
+              "distance": 34880.04477368625,
+              "moving_time": "8:05:13",
+              "type": "trail_running",
+              "start_date": "2020-12-06 00:01:16",
+              "start_date_local": "2020-12-06 08:01:16",
+              "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "{dmxDa~o`V{Fo@wYcGwBlF{C`MmAfIVbBdYhGpCL`C]tSyKf@mAJsCZSdCJdC~BdLvCxPiCn@h@PvEhB~BB|AZPoA|ENf@sA~CcAv@Ir@aFpAyNcDcBTgApAMtGxA`BxAFXtA~H_@\\zAhChA`@~D{@`B}@d@eBtERXtADjAaA?k@|@eAvCwAxAKzAuAdAO|Bd@hAy@vAHx@v@`AJ~Ag@OcCp@oEH_F}@yCfAqBD}FmAoAcBuDeBcLt@y@c@cA_AEO_G_AgFeJoWkAoFU{DvD_LzIuOhDiMvCdITvDf@M?[l@RhCnDa@bAn@lGc@nCAxChCpHu@nDcHjMk@zDRzE[jAfAx@j@~DhBzCbAh@b@zAhEVzBuCtDiClCp@xHyDjDeAz@VdA~CDlBnBdApAjBdAbHC~@qBzCA`CsBl@gC{DoAkEw@s@HZa@E}@q@Cc@qBiA[fAg@T{Bo@Ue@uBh@`DbVlEzDl@lBDrC\\PgAx@jJ|@o@rJvFz@pCnA`CEdBt@~@lChI`B_BlI`@r@pBPNt@x@TA`CtHvAdDEjEl@JaAo@oADm@yBgEAqGdAcCCkA{B}@eC_DwDmIoD{AeDwFGiAaDqEuFwCcA{ArE}CfAd@vCErCuAlEdBzDuANiCh@g@|Ba@bA{AhCCeAmEZ{Di@Gm@iBmDqC{@mB_CsAg@gAlGmAxKqG_AoDKqKiAg@kGrG{EmBoA`@g@QgEbDe@jAgA^Kf@z@dAHSXx@Ql@Z`A_@bAVNYpATfBf@l@uFrBeErDmEDeBw@yB@qC_Ak@o@R{@k@gA~AyAS}@^m@cB]{Cl@gBfBwB`AkAGgC{CiHfBgGT}BtAW}@|@cBM_C\\iAdDmCfAH`FcB`DeCpFuHbBe@G[dAg@x@ElAoAhAsIMk@iBMk@r@aAIsEeDqF}@o@q@WwCi@@Bw@?r@I[SNXGSgAZiCfHcDvEm@pC{BNm@yI}CkBiE}F}@Tg@|BMxAcAr@Jo@cALWgCeCsEu@}BdAi@cAiCq@aKwKJ{@K|@uCgCcEqHeFwNmFgHq@OqCf@aD{CaAKOs@{Cq@kDxH@vBf@r@aA|ELlA}BfIsBqDmDCgCcAmDjA}BWuAcFbAqEmDs@sJo@eAPsFbFoFx@?nAsAzDrAxDeBfBs@`B[Aq@nGbAjD^rEK`F`@vA{@`@[hA_BxAmF]kF{CsC\\y@nDeAh@}BLO\\vAxCRxC}@HcApAgFc@mAt@cBLsC~BbBxAL~AzFYjBjHbAv@nDr@K`@bAbAtAAxF_CDqEp@{@fDyAlFdB`AWrGjEfAfBzEs@|@i@hCpAtDA`@f@\\u@dA_@p@X|@gAfBz@r@YZXj@iAn@T~CzEAtBg@rByDhCiMBmDxGqH~EcEbFfa@nIV@`@eA`AJ",
+              "average_heartrate": 159.0,
+              "average_speed": 1.198091738181783,
+              "streak": 1
             }
           },
           "longest_time": {
@@ -212,7 +341,7 @@
               "name": "run from gpx",
               "distance": 34880.04477368625,
               "moving_time": "8:05:13",
-              "type": "Run",
+              "type": "trail_running",
               "start_date": "2020-12-06 00:01:16",
               "start_date_local": "2020-12-06 08:01:16",
               "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
@@ -223,21 +352,124 @@
             }
           },
           "fastest_pace": {
-            "pace": 149.8054346316722,
+            "pace": Infinity,
+            "activity": null
+          },
+          "highest_speed": {
+            "speed": 2.7115693616682557,
             "activity": {
-              "run_id": 1723628270000,
+              "run_id": 1727346889000,
               "name": "run from gpx",
-              "distance": 20519.949810619808,
-              "moving_time": "0:51:14",
-              "type": "Run",
-              "start_date": "2024-08-14 09:37:50",
-              "start_date_local": "2024-08-14 17:37:50",
-              "location_country": "南湖区, 嘉兴市, 浙江省, 中国",
-              "summary_polyline": "ypszDqgm`VmW{Cgk@uRaPiC}ZcDuGKyHz@oGvByq@p`@ma@qW}_@kc@eHkNcOab@mEsGaG_MgYqu@aJ}OqJaMaOgNaQmKya@yOaSyJ{@U_@h@Zl@nPdIr_@nNdI|DlObKjLbLxJpMnItO``@vdAxBnDlClBhOla@pFhK|DlFzZ|\\lj@f^~ElEjDtEzDlI`Pri@pNlwAdAnGt@JzRoF~UO`Hf@rAh@B\\@rO",
-              "average_heartrate": 140.0,
-              "average_speed": 6.675325247436502,
+              "distance": 13495.48071302291,
+              "moving_time": "1:22:57",
+              "type": "trail_running",
+              "start_date": "2024-09-26 10:34:49",
+              "start_date_local": "2024-09-26 18:34:49",
+              "location_country": "凌公塘路, 南湖区, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "qbtzDwgj`V[\\kJAkLvAa@[F`Fo@iAm@M{@X[v@xG`Sn@jFGnB~AfHSjFy@rDt@fKiB`E|@fDDxHj@dEWr@?~FnBjELxFh@|BKxAdBnDgDxLcBlAIpHn@nBFfE|@lBJzAAbDqAvEtBVfA_ECcGgCoI~@sK~BiEdAu@VuBoAgFVeKgAgFRg@`ADj@a@EoAn@gAOiBw@QMy@oC?_@h@kAaBPyQf@{AiAeGfBkTgC}NNu@o@kFg@}By@kAqB}JwAi@}@nAlGnRHjEzBdKKlHy@tDf@xFChD[|A{@dA|@~CJxIh@tD[t@?|FxBxEDpEh@zBO~AjA~ARhC_DjK_BpAOpF|@pDEfDfArCL~BGdCuAdEXXnBKz@mEK}F}BwHt@iK~BsEfA}@ZoBiAiFJkA_@aBb@wEeAeFTi@~AODcBn@cAM_B{@YS{@gCB_@f@qA}BGwEh@iCIiFd@gAaA{GVuFp@_DQsBj@iBsDcZ{AuDyAyH",
+              "average_heartrate": 152.0,
+              "average_speed": 2.7115693616682557,
+              "streak": 1
+            }
+          }
+        }
+      }
+    },
+    "cycling": {
+      "weekly": {
+        "period_type": "weekly",
+        "activity_type": "cycling",
+        "data": {},
+        "summary": {}
+      },
+      "monthly": {
+        "period_type": "monthly",
+        "activity_type": "cycling",
+        "data": {},
+        "summary": {}
+      },
+      "yearly": {
+        "period_type": "yearly",
+        "activity_type": "cycling",
+        "data": {},
+        "summary": {}
+      },
+      "distance_distribution": {
+        "activity_type": "cycling",
+        "total_activities": 36,
+        "distribution": {
+          "0-5公里": {
+            "count": 0,
+            "total_distance": 0,
+            "percentage": 0.0
+          },
+          "5-10公里": {
+            "count": 20,
+            "total_distance": 139.57,
+            "percentage": 55.6
+          },
+          "10-20公里": {
+            "count": 4,
+            "total_distance": 70.03,
+            "percentage": 11.1
+          },
+          "20-30公里": {
+            "count": 9,
+            "total_distance": 210.19,
+            "percentage": 25.0
+          },
+          "30-50公里": {
+            "count": 2,
+            "total_distance": 91.11,
+            "percentage": 5.6
+          },
+          "50公里以上": {
+            "count": 1,
+            "total_distance": 51.75,
+            "percentage": 2.8
+          }
+        }
+      },
+      "personal_bests": {
+        "activity_type": "cycling",
+        "records": {
+          "longest_distance": {
+            "distance": 51.7485634590662,
+            "activity": {
+              "run_id": 1707369331000,
+              "name": "run from gpx",
+              "distance": 51748.563459066194,
+              "moving_time": "2:31:37",
+              "type": "cycling",
+              "start_date": "2024-02-08 05:15:31",
+              "start_date_local": "2024-02-08 13:15:31",
+              "location_country": "东栅街道, 南湖区, 嘉兴市, 浙江省, 314001, 中国",
+              "summary_polyline": "sopzDoed`VMaAo@a@oAIiChAebAh@SWPoYxBgYY_DhAeMTwW`@kDSq@b@mv@z@_j@y@{`@Yad@RqK`AsLhBu{@bCuw@a@eGkA_FiV}b@cAwCuOkYUqB~@iBxM{HvIoG`QgPpLiRfLiTnEuFZmAfBaCjEyElDcCbDmAhRcClEsDrk@inAd^{eAdXmv@zEqm@~DwzA~`@yuCwBuw@q@iEsGkSq@yGlDehAAyk@DaBn@oB[uAZ}A]mA?sXh@yD|GkTxD}JlHoMlCsG|CcUrAqQJeNrAsHj@sHaB_t@re@_d@dQaNjCgCPaAuTgs@kEqJ_OkU{DiKgHq^kAkLFoKrCs[KiKmAiIgFaOm^gg@yD}JeXcuAe_@g`DsAsFsByEwNiOwBmFk@uGo@_XToAM{AXk@[_B?iFlB_bA@}d@e@ws@uB_aAyEee@aEwKaBwAuKiRwPmr@mByDgCwCoZeS_F_Cy\\aFoQaB{XoAiEoBiGyFiG_E{EuB}IwBcj@_FgH@sExAkYpQiOs_@kG_a@e@IeDtAgCwK}D_E{HkQa@EoAx@",
+              "average_heartrate": 141.0,
+              "average_speed": 5.688530664951764,
               "streak": 2
             }
+          },
+          "longest_time": {
+            "time": 9097,
+            "activity": {
+              "run_id": 1707369331000,
+              "name": "run from gpx",
+              "distance": 51748.563459066194,
+              "moving_time": "2:31:37",
+              "type": "cycling",
+              "start_date": "2024-02-08 05:15:31",
+              "start_date_local": "2024-02-08 13:15:31",
+              "location_country": "东栅街道, 南湖区, 嘉兴市, 浙江省, 314001, 中国",
+              "summary_polyline": "sopzDoed`VMaAo@a@oAIiChAebAh@SWPoYxBgYY_DhAeMTwW`@kDSq@b@mv@z@_j@y@{`@Yad@RqK`AsLhBu{@bCuw@a@eGkA_FiV}b@cAwCuOkYUqB~@iBxM{HvIoG`QgPpLiRfLiTnEuFZmAfBaCjEyElDcCbDmAhRcClEsDrk@inAd^{eAdXmv@zEqm@~DwzA~`@yuCwBuw@q@iEsGkSq@yGlDehAAyk@DaBn@oB[uAZ}A]mA?sXh@yD|GkTxD}JlHoMlCsG|CcUrAqQJeNrAsHj@sHaB_t@re@_d@dQaNjCgCPaAuTgs@kEqJ_OkU{DiKgHq^kAkLFoKrCs[KiKmAiIgFaOm^gg@yD}JeXcuAe_@g`DsAsFsByEwNiOwBmFk@uGo@_XToAM{AXk@[_B?iFlB_bA@}d@e@ws@uB_aAyEee@aEwKaBwAuKiRwPmr@mByDgCwCoZeS_F_Cy\\aFoQaB{XoAiEoBiGyFiG_E{EuB}IwBcj@_FgH@sExAkYpQiOs_@kG_a@e@IeDtAgCwK}D_E{HkQa@EoAx@",
+              "average_heartrate": 141.0,
+              "average_speed": 5.688530664951764,
+              "streak": 2
+            }
+          },
+          "fastest_pace": {
+            "pace": Infinity,
+            "activity": null
           },
           "highest_speed": {
             "speed": 6.675325247436502,
@@ -246,7 +478,7 @@
               "name": "run from gpx",
               "distance": 20519.949810619808,
               "moving_time": "0:51:14",
-              "type": "Run",
+              "type": "cycling",
               "start_date": "2024-08-14 09:37:50",
               "start_date_local": "2024-08-14 17:37:50",
               "location_country": "南湖区, 嘉兴市, 浙江省, 中国",

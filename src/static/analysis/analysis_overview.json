@@ -1,8 +1,10 @@
 {
-  "generated_at": "2025-06-17T00:55:33.516028",
+  "generated_at": "2025-06-17T09:33:01.604638",
   "overview": {
     "total_activities": 364,
-    "available_types": ["running"],
+    "available_types": [
+      "running"
+    ],
     "total_distance_km": 4229.3,
     "total_time_seconds": 1668174,
     "total_time_formatted": "463:22:54",
