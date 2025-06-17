@@ -38,10 +38,10 @@ def ensure_output_dir():
     # 同时输出到 src 和 public 目录，确保开发和生产环境都能访问
     src_output_dir = Path("src/static/analysis")
     public_output_dir = Path("public/static/analysis")
-    
+
     src_output_dir.mkdir(parents=True, exist_ok=True)
     public_output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     return src_output_dir, public_output_dir
 
 
