@@ -35,12 +35,17 @@ def load_activities_from_db():
 
 def ensure_output_dir():
     """确保输出目录存在"""
-    output_dir = Path("src/static/analysis")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    return output_dir
+    # 同时输出到 src 和 public 目录，确保开发和生产环境都能访问
+    src_output_dir = Path("src/static/analysis")
+    public_output_dir = Path("public/static/analysis")
+    
+    src_output_dir.mkdir(parents=True, exist_ok=True)
+    public_output_dir.mkdir(parents=True, exist_ok=True)
+    
+    return src_output_dir, public_output_dir
 
 
-def generate_activity_types(activities, output_dir):
+def generate_activity_types(activities, output_dirs):
     """生成活动类型统计"""
     print("📊 生成活动类型统计...")
 
@@ -57,15 +62,17 @@ def generate_activity_types(activities, output_dir):
         "type_statistics": type_stats,
     }
 
-    output_file = output_dir / "activity_types.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
+    # 写入到两个目录
+    for output_dir in output_dirs:
+        output_file = output_dir / "activity_types.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 活动类型统计已保存到: {output_file}")
+    print(f"✅ 活动类型统计已保存到: {output_dirs[0]}")
     return type_stats
 
 
-def generate_basic_statistics(activities, output_dir):
+def generate_basic_statistics(activities, output_dirs):
     """生成基础统计分析"""
     print("📈 生成基础统计分析...")
 
@@ -114,15 +121,17 @@ def generate_basic_statistics(activities, output_dir):
         "stats_by_type": all_stats,
     }
 
-    output_file = output_dir / "basic_statistics.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
+    # 写入到两个目录
+    for output_dir in output_dirs:
+        output_file = output_dir / "basic_statistics.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 基础统计分析已保存到: {output_file}")
+    print(f"✅ 基础统计分析已保存到: {output_dirs[0]}")
     return all_stats
 
 
-def generate_advanced_analysis(activities, output_dir):
+def generate_advanced_analysis(activities, output_dirs):
     """生成高级分析数据"""
     print("🔬 生成高级分析数据...")
 
@@ -152,15 +161,17 @@ def generate_advanced_analysis(activities, output_dir):
         "advanced_stats_by_type": advanced_stats,
     }
 
-    output_file = output_dir / "advanced_analysis.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
+    # 写入到两个目录
+    for output_dir in output_dirs:
+        output_file = output_dir / "advanced_analysis.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 高级分析数据已保存到: {output_file}")
+    print(f"✅ 高级分析数据已保存到: {output_dirs[0]}")
     return advanced_stats
 
 
-def generate_recent_summary(activities, output_dir):
+def generate_recent_summary(activities, output_dirs):
     """生成最近活动摘要"""
     print("📅 生成最近活动摘要...")
 
@@ -198,15 +209,17 @@ def generate_recent_summary(activities, output_dir):
         "recent_summaries": summaries,
     }
 
-    output_file = output_dir / "recent_summary.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
+    # 写入到两个目录
+    for output_dir in output_dirs:
+        output_file = output_dir / "recent_summary.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 最近活动摘要已保存到: {output_file}")
+    print(f"✅ 最近活动摘要已保存到: {output_dirs[0]}")
     return summaries
 
 
-def generate_analysis_overview(activities, output_dir):
+def generate_analysis_overview(activities, output_dirs):
     """生成分析概览"""
     print("🔍 生成分析概览...")
 
@@ -269,11 +282,13 @@ def generate_analysis_overview(activities, output_dir):
         "type_breakdown": type_stats,
     }
 
-    output_file = output_dir / "analysis_overview.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(overview, f, ensure_ascii=False, indent=2)
+    # 写入到两个目录
+    for output_dir in output_dirs:
+        output_file = output_dir / "analysis_overview.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(overview, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 分析概览已保存到: {output_file}")
+    print(f"✅ 分析概览已保存到: {output_dirs[0]}")
     return overview
 
 
@@ -298,26 +313,27 @@ def main():
         return 1
 
     # 确保输出目录存在
-    output_dir = ensure_output_dir()
+    src_output_dir, public_output_dir = ensure_output_dir()
+    output_dirs = [src_output_dir, public_output_dir]
 
     try:
         if args.type in ["all", "types"]:
-            generate_activity_types(activities, output_dir)
+            generate_activity_types(activities, output_dirs)
 
         if args.type in ["all", "basic"]:
-            generate_basic_statistics(activities, output_dir)
+            generate_basic_statistics(activities, output_dirs)
 
         if args.type in ["all", "advanced"]:
-            generate_advanced_analysis(activities, output_dir)
+            generate_advanced_analysis(activities, output_dirs)
 
         if args.type in ["all", "summary"]:
-            generate_recent_summary(activities, output_dir)
+            generate_recent_summary(activities, output_dirs)
 
         if args.type in ["all", "overview"]:
-            generate_analysis_overview(activities, output_dir)
+            generate_analysis_overview(activities, output_dirs)
 
         print("\n🎉 所有分析数据生成完成！")
-        print(f"📂 输出目录: {output_dir}")
+        print(f"📂 输出目录: {src_output_dir}")
 
         return 0
 

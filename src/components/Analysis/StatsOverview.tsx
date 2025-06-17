@@ -1,3 +1,5 @@
+import React from 'react';
+
 // 统计概览组件
 interface StatsOverviewProps {
   selectedTypes: string[];
@@ -19,97 +21,47 @@ interface StatsOverviewProps {
 //   }
 // };
 
-const StatsOverview = ({
+const StatsOverview: React.FC<StatsOverviewProps> = ({
   selectedTypes: _selectedTypes,
   overviewData,
   recentSummary: _recentSummary,
-}: StatsOverviewProps) => {
+}) => {
   if (!overviewData) return null;
 
   const overview = overviewData.overview || {};
   // const typeBreakdown = overviewData.type_breakdown || {};
 
-  return {
-    component: 'div',
-    className: 'stats-overview bg-white rounded-lg shadow-md p-6',
-    children: [
-      {
-        component: 'h3',
-        className: 'text-lg font-semibold mb-4',
-        children: '📈 统计概览',
-      },
-      {
-        component: 'div',
-        className: 'grid grid-cols-2 md:grid-cols-4 gap-4',
-        children: [
-          {
-            component: 'div',
-            className: 'text-center p-4 bg-blue-50 rounded-lg',
-            children: [
-              {
-                component: 'div',
-                className: 'text-2xl font-bold text-blue-600',
-                children: overview.total_activities || 0,
-              },
-              {
-                component: 'div',
-                className: 'text-sm text-gray-600',
-                children: '总活动数',
-              },
-            ],
-          },
-          {
-            component: 'div',
-            className: 'text-center p-4 bg-green-50 rounded-lg',
-            children: [
-              {
-                component: 'div',
-                className: 'text-2xl font-bold text-green-600',
-                children: `${overview.total_distance_km || 0} km`,
-              },
-              {
-                component: 'div',
-                className: 'text-sm text-gray-600',
-                children: '总距离',
-              },
-            ],
-          },
-          {
-            component: 'div',
-            className: 'text-center p-4 bg-purple-50 rounded-lg',
-            children: [
-              {
-                component: 'div',
-                className: 'text-2xl font-bold text-purple-600',
-                children: overview.total_time_formatted || '0:00',
-              },
-              {
-                component: 'div',
-                className: 'text-sm text-gray-600',
-                children: '总时间',
-              },
-            ],
-          },
-          {
-            component: 'div',
-            className: 'text-center p-4 bg-orange-50 rounded-lg',
-            children: [
-              {
-                component: 'div',
-                className: 'text-2xl font-bold text-orange-600',
-                children: `${overview.avg_distance_per_activity || 0} km`,
-              },
-              {
-                component: 'div',
-                className: 'text-sm text-gray-600',
-                children: '平均距离',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  };
+  return (
+    <div className="stats-overview bg-white rounded-lg shadow-md p-6">
+      <h3 className="text-lg font-semibold mb-4">📈 统计概览</h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="text-center p-4 bg-blue-50 rounded-lg">
+          <div className="text-2xl font-bold text-blue-600">
+            {overview.total_activities || 0}
+          </div>
+          <div className="text-sm text-gray-600">总活动数</div>
+        </div>
+        <div className="text-center p-4 bg-green-50 rounded-lg">
+          <div className="text-2xl font-bold text-green-600">
+            {overview.total_distance_km || 0} km
+          </div>
+          <div className="text-sm text-gray-600">总距离</div>
+        </div>
+        <div className="text-center p-4 bg-purple-50 rounded-lg">
+          <div className="text-2xl font-bold text-purple-600">
+            {overview.total_time_formatted || '0:00'}
+          </div>
+          <div className="text-sm text-gray-600">总时间</div>
+        </div>
+        <div className="text-center p-4 bg-orange-50 rounded-lg">
+          <div className="text-2xl font-bold text-orange-600">
+            {overview.avg_distance_per_activity || 0} km
+          </div>
+          <div className="text-sm text-gray-600">平均距离</div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default StatsOverview;

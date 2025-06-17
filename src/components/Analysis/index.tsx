@@ -26,9 +26,9 @@ const Analysis: React.FC = () => {
 
       // 并行加载所有分析数据
       const [typesRes, overviewRes, summaryRes] = await Promise.allSettled([
-        fetch('/src/static/analysis/activity_types.json'),
-        fetch('/src/static/analysis/analysis_overview.json'),
-        fetch('/src/static/analysis/recent_summary.json'),
+        fetch('/static/analysis/activity_types.json'),
+        fetch('/static/analysis/analysis_overview.json'),
+        fetch('/static/analysis/recent_summary.json'),
       ]);
 
       const data: AnalysisData = {};
