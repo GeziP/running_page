@@ -1,0 +1,23 @@
+{
+  "generated_at": "2025-06-17T00:23:01.535112",
+  "advanced_stats_by_type": {
+    "all": {
+      "pace_trends": {
+        "activity_type": "all",
+        "pace_data": [],
+        "monthly_trends": {},
+        "summary": {},
+        "insights": []
+      }
+    },
+    "running": {
+      "pace_trends": {
+        "activity_type": "running",
+        "pace_data": [],
+        "monthly_trends": {},
+        "summary": {},
+        "insights": []
+      }
+    }
+  }
+}
