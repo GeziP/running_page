@@ -142,4 +142,3 @@ const ActivityTypeSelector: React.FC<ActivityTypeSelectorProps> = ({
 };
 
 export default ActivityTypeSelector;
- 

@@ -32,28 +32,28 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
   // const typeBreakdown = overviewData.type_breakdown || {};
 
   return (
-    <div className="stats-overview bg-white rounded-lg shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">📈 统计概览</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="text-center p-4 bg-blue-50 rounded-lg">
+    <div className="stats-overview rounded-lg bg-white p-6 shadow-md">
+      <h3 className="mb-4 text-lg font-semibold">📈 统计概览</h3>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="rounded-lg bg-blue-50 p-4 text-center">
           <div className="text-2xl font-bold text-blue-600">
             {overview.total_activities || 0}
           </div>
           <div className="text-sm text-gray-600">总活动数</div>
         </div>
-        <div className="text-center p-4 bg-green-50 rounded-lg">
+        <div className="rounded-lg bg-green-50 p-4 text-center">
           <div className="text-2xl font-bold text-green-600">
             {overview.total_distance_km || 0} km
           </div>
           <div className="text-sm text-gray-600">总距离</div>
         </div>
-        <div className="text-center p-4 bg-purple-50 rounded-lg">
+        <div className="rounded-lg bg-purple-50 p-4 text-center">
           <div className="text-2xl font-bold text-purple-600">
             {overview.total_time_formatted || '0:00'}
           </div>
           <div className="text-sm text-gray-600">总时间</div>
         </div>
-        <div className="text-center p-4 bg-orange-50 rounded-lg">
+        <div className="rounded-lg bg-orange-50 p-4 text-center">
           <div className="text-2xl font-bold text-orange-600">
             {overview.avg_distance_per_activity || 0} km
           </div>
@@ -65,4 +65,3 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
 };
 
 export default StatsOverview;
- 
