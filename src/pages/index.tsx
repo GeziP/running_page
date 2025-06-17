@@ -200,23 +200,27 @@ const Index = () => {
             <SVGStat />
             <div className="mt-8 space-y-4">
               {/* 分析功能入口 */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-200">
+              <div className="rounded-lg border border-blue-200 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">📊 运动数据深度分析</h3>
-                  <p className="text-gray-600 mb-4">深入了解您的运动表现，发现运动规律和趋势</p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a 
-                      href="./analysis.html" 
+                  <h3 className="mb-2 text-xl font-bold text-gray-800">
+                    📊 运动数据深度分析
+                  </h3>
+                  <p className="mb-4 text-gray-600">
+                    深入了解您的运动表现，发现运动规律和趋势
+                  </p>
+                  <div className="flex flex-col justify-center gap-3 sm:flex-row">
+                    <a
+                      href="./analysis.html"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                      className="inline-flex transform items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-medium text-white shadow-md transition-all duration-200 hover:scale-105 hover:bg-blue-700 hover:shadow-lg"
                       title="打开详细的运动数据分析页面"
                     >
                       🔬 完整分析报告
                     </a>
-                    <a 
+                    <a
                       href="./analysis.html"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                      className="inline-flex items-center justify-center rounded-lg bg-purple-600 px-6 py-3 font-medium text-white shadow-md transition-colors duration-200 hover:bg-purple-700 hover:shadow-lg"
                       title="查看数据分析摘要"
                     >
                       📈 查看数据摘要
@@ -224,33 +228,37 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 快速统计卡片 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-blue-500">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <div className="rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-md">
                   <div className="flex items-center">
-                    <div className="text-2xl mr-3">🎯</div>
+                    <div className="mr-3 text-2xl">🎯</div>
                     <div>
                       <div className="text-sm text-gray-600">总活动数</div>
                       <div className="text-xl font-bold text-blue-600">364</div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-green-500">
+                <div className="rounded-lg border-l-4 border-green-500 bg-white p-4 shadow-md">
                   <div className="flex items-center">
-                    <div className="text-2xl mr-3">🛣️</div>
+                    <div className="mr-3 text-2xl">🛣️</div>
                     <div>
                       <div className="text-sm text-gray-600">总距离</div>
-                      <div className="text-xl font-bold text-green-600">4,229.3 公里</div>
+                      <div className="text-xl font-bold text-green-600">
+                        4,229.3 公里
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg shadow-md p-4 border-l-4 border-purple-500">
+                <div className="rounded-lg border-l-4 border-purple-500 bg-white p-4 shadow-md">
                   <div className="flex items-center">
-                    <div className="text-2xl mr-3">⏱️</div>
+                    <div className="mr-3 text-2xl">⏱️</div>
                     <div>
                       <div className="text-sm text-gray-600">总时间</div>
-                      <div className="text-xl font-bold text-purple-600">463 小时</div>
+                      <div className="text-xl font-bold text-purple-600">
+                        463 小时
+                      </div>
                     </div>
                   </div>
                 </div>

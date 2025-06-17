@@ -4,7 +4,10 @@ interface ChartsProps {
   analysisData: any;
 }
 
-const Charts = ({ selectedTypes, analysisData }: ChartsProps) => {
+const Charts = ({
+  selectedTypes: _selectedTypes,
+  analysisData: _analysisData,
+}: ChartsProps) => {
   return {
     component: 'div',
     className: 'charts-container space-y-6',
@@ -16,17 +19,17 @@ const Charts = ({ selectedTypes, analysisData }: ChartsProps) => {
           {
             component: 'h3',
             className: 'text-lg font-semibold mb-4',
-            children: '📊 图表分析'
+            children: '📊 图表分析',
           },
           {
             component: 'div',
             className: 'text-center text-gray-500 py-8',
-            children: '📈 图表功能正在开发中，敬请期待！'
-          }
-        ]
-      }
-    ]
+            children: '📈 图表功能正在开发中，敬请期待！',
+          },
+        ],
+      },
+    ],
   };
 };
 
-export default Charts; 
+export default Charts;

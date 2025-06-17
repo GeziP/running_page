@@ -23,12 +23,12 @@ const Analysis: React.FC = () => {
   const loadAnalysisData = async () => {
     try {
       setLoading(true);
-      
+
       // 并行加载所有分析数据
       const [typesRes, overviewRes, summaryRes] = await Promise.allSettled([
         fetch('/src/static/analysis/activity_types.json'),
         fetch('/src/static/analysis/analysis_overview.json'),
-        fetch('/src/static/analysis/recent_summary.json')
+        fetch('/src/static/analysis/recent_summary.json'),
       ]);
 
       const data: AnalysisData = {};
@@ -76,12 +76,8 @@ const Analysis: React.FC = () => {
     <div className="analysis-container space-y-6">
       {/* 页面标题 */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">
-          📊 数据分析
-        </h2>
-        <p className="text-gray-600">
-          深入了解您的运动表现和趋势
-        </p>
+        <h2 className="mb-2 text-3xl font-bold text-gray-800">📊 数据分析</h2>
+        <p className="text-gray-600">深入了解您的运动表现和趋势</p>
       </div>
 
       {/* 活动类型选择器 */}
@@ -100,12 +96,9 @@ const Analysis: React.FC = () => {
       />
 
       {/* 图表展示 */}
-      <Charts
-        selectedTypes={selectedTypes}
-        analysisData={analysisData}
-      />
+      <Charts selectedTypes={selectedTypes} analysisData={analysisData} />
     </div>
   );
 };
 
-export default Analysis; 
+export default Analysis;
