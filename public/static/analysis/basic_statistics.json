@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-06-17T11:08:10.855136",
+  "generated_at": "2025-06-17T03:50:09.828101",
   "stats_by_type": {
     "all": {
       "weekly": {
@@ -83,7 +83,7 @@
               "name": "run from gpx",
               "distance": 34880.04477368625,
               "moving_time": "8:05:13",
-              "type": "trail_running",
+              "type": "Run",
               "start_date": "2020-12-06 00:01:16",
               "start_date_local": "2020-12-06 08:01:16",
               "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
@@ -151,37 +151,37 @@
       },
       "distance_distribution": {
         "activity_type": "running",
-        "total_activities": 352,
+        "total_activities": 364,
         "distribution": {
           "0-5公里": {
             "count": 29,
             "total_distance": 106.0,
-            "percentage": 8.2
+            "percentage": 8.0
           },
           "5-10公里": {
             "count": 147,
             "total_distance": 1073.58,
-            "percentage": 41.8
+            "percentage": 40.4
           },
           "10-20公里": {
-            "count": 141,
-            "total_distance": 1839.84,
-            "percentage": 40.1
+            "count": 144,
+            "total_distance": 1877.3,
+            "percentage": 39.6
           },
           "20-30公里": {
-            "count": 29,
-            "total_distance": 660.5,
-            "percentage": 8.2
+            "count": 36,
+            "total_distance": 828.14,
+            "percentage": 9.9
           },
           "30-50公里": {
-            "count": 4,
-            "total_distance": 176.2,
-            "percentage": 1.1
+            "count": 6,
+            "total_distance": 241.83,
+            "percentage": 1.6
           },
           "50公里以上": {
             "count": 2,
             "total_distance": 102.46,
-            "percentage": 0.6
+            "percentage": 0.5
           }
         }
       },
@@ -206,19 +206,19 @@
             }
           },
           "longest_time": {
-            "time": 20451,
+            "time": 29113,
             "activity": {
-              "run_id": 1681599681000,
+              "run_id": 1607212876000,
               "name": "run from gpx",
-              "distance": 25281.55034120274,
-              "moving_time": "5:40:51",
-              "type": "running",
-              "start_date": "2023-04-15 23:01:21",
-              "start_date_local": "2023-04-16 07:01:21",
-              "location_country": "Discovery园区道路, 莫平山镇, 德清县, 湖州市, 浙江省, 中国",
-              "summary_polyline": "__yyDe{xzUj@j@mArBJjDzC|AfG?v@ZpObN~EvCQbIl@pAp@O~BgFzFqGrJoBhDK|CfAfAoAzCw@vEkIxE|@rD_BjDHh@k@bBInD^v@]jErC`CtCbBa@HjImEzDx@hKMrJ~A~@nA~CTpBWNZMe@}@uEjAGlCtBbH~@p@hA~DhCvDDnGiDxGSdHo@rAwCrQaBfCsDtCs@~Aq@\\sCW`IvH{@lCx@hBzAnBdEdBhAzDvAx@c@dEh@xH|A`DbHdHVdAe@pCuDq@gGpBBdAWDd@QG\\[WBV]Db@KYa@`@BF[cA?aB~By@pD_CvEeCdC_AnC{FvDw@pC}EvCmBjCeGr@wAdC|@`ACx@yClGVrCyAw@DdBsA\\s@fB}BbBj@tDI`DtDtEPbEXj@xFhD|BhGKlBmCbAaAUo@hAkBhAwDVmBx@yBhBiIbMwDjDqAyAKeCWEw@tJgBnKsAg@?z@wAdCwCrCOdA{EpEU`EyA`@gCSmAr@]pIiBrE{DgC?uCiA{CaAMeEaGYmBcE{FJk@e@{AiARkA}@}GyB_HrBgDMa@f@yCNwBpA_BFqCk@iBDuA_B_Bc@yHQuA~@mBI{BvCyAjENrCc@lEs@r@aBfGKvCc@nBcAtAIjAsAWVKMVSe@q@sEgDwEkByEiDi@oAnCoEjBRvEyDvJwAAiA{DsCsAkD`BsBVeCvDeCx@{C_EqAk@iB`Aq@vCwDdEyEgBsAaCq@KeHgGtApDBlJc@r@So@_Do@cA_Er@iDe@aDX{A}BgElAcEcCeEEoA|@oAtBQ|CsAdAiO_AyH_BwGmEm@EkBm@_BL_Ca@{B{CD_@m@fBeAzA}BC}Ag@yAHeAlEyCrBuFlB]fB_CcCh@kDu@gGvF{Fi@c@}ADy@vBuEmAmF^_G`@eASs@d@eAi@_A]sCJ}C\\Y[cAV_AOm@_BD`@kAuBuECgA`@[Wi@dHwGfCuJzAuAdCw@ZcHd@QlBp@l@cDrAeAWmGdFuGCgBTL|BaC`Bq@fAx@SH`DFlG]|@sAxBVDoF^eBfAClAjAfDh@fA]Jw@",
-              "average_heartrate": 156.0,
-              "average_speed": 1.236201180441188,
+              "distance": 34880.04477368625,
+              "moving_time": "8:05:13",
+              "type": "Run",
+              "start_date": "2020-12-06 00:01:16",
+              "start_date_local": "2020-12-06 08:01:16",
+              "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
+              "summary_polyline": "{dmxDa~o`V{Fo@wYcGwBlF{C`MmAfIVbBdYhGpCL`C]tSyKf@mAJsCZSdCJdC~BdLvCxPiCn@h@PvEhB~BB|AZPoA|ENf@sA~CcAv@Ir@aFpAyNcDcBTgApAMtGxA`BxAFXtA~H_@\\zAhChA`@~D{@`B}@d@eBtERXtADjAaA?k@|@eAvCwAxAKzAuAdAO|Bd@hAy@vAHx@v@`AJ~Ag@OcCp@oEH_F}@yCfAqBD}FmAoAcBuDeBcLt@y@c@cA_AEO_G_AgFeJoWkAoFU{DvD_LzIuOhDiMvCdITvDf@M?[l@RhCnDa@bAn@lGc@nCAxChCpHu@nDcHjMk@zDRzE[jAfAx@j@~DhBzCbAh@b@zAhEVzBuCtDiClCp@xHyDjDeAz@VdA~CDlBnBdApAjBdAbHC~@qBzCA`CsBl@gC{DoAkEw@s@HZa@E}@q@Cc@qBiA[fAg@T{Bo@Ue@uBh@`DbVlEzDl@lBDrC\\PgAx@jJ|@o@rJvFz@pCnA`CEdBt@~@lChI`B_BlI`@r@pBPNt@x@TA`CtHvAdDEjEl@JaAo@oADm@yBgEAqGdAcCCkA{B}@eC_DwDmIoD{AeDwFGiAaDqEuFwCcA{ArE}CfAd@vCErCuAlEdBzDuANiCh@g@|Ba@bA{AhCCeAmEZ{Di@Gm@iBmDqC{@mB_CsAg@gAlGmAxKqG_AoDKqKiAg@kGrG{EmBoA`@g@QgEbDe@jAgA^Kf@z@dAHSXx@Ql@Z`A_@bAVNYpATfBf@l@uFrBeErDmEDeBw@yB@qC_Ak@o@R{@k@gA~AyAS}@^m@cB]{Cl@gBfBwB`AkAGgC{CiHfBgGT}BtAW}@|@cBM_C\\iAdDmCfAH`FcB`DeCpFuHbBe@G[dAg@x@ElAoAhAsIMk@iBMk@r@aAIsEeDqF}@o@q@WwCi@@Bw@?r@I[SNXGSgAZiCfHcDvEm@pC{BNm@yI}CkBiE}F}@Tg@|BMxAcAr@Jo@cALWgCeCsEu@}BdAi@cAiCq@aKwKJ{@K|@uCgCcEqHeFwNmFgHq@OqCf@aD{CaAKOs@{Cq@kDxH@vBf@r@aA|ELlA}BfIsBqDmDCgCcAmDjA}BWuAcFbAqEmDs@sJo@eAPsFbFoFx@?nAsAzDrAxDeBfBs@`B[Aq@nGbAjD^rEK`F`@vA{@`@[hA_BxAmF]kF{CsC\\y@nDeAh@}BLO\\vAxCRxC}@HcApAgFc@mAt@cBLsC~BbBxAL~AzFYjBjHbAv@nDr@K`@bAbAtAAxF_CDqEp@{@fDyAlFdB`AWrGjEfAfBzEs@|@i@hCpAtDA`@f@\\u@dA_@p@X|@gAfBz@r@YZXj@iAn@T~CzEAtBg@rByDhCiMBmDxGqH~EcEbFfa@nIV@`@eA`AJ",
+              "average_heartrate": 159.0,
+              "average_speed": 1.198091738181783,
               "streak": 1
             }
           },
@@ -254,122 +254,6 @@
               "average_heartrate": 140.0,
               "average_speed": 6.675325247436502,
               "streak": 2
-            }
-          }
-        }
-      }
-    },
-    "trail_running": {
-      "weekly": {
-        "period_type": "weekly",
-        "activity_type": "trail_running",
-        "data": {},
-        "summary": {}
-      },
-      "monthly": {
-        "period_type": "monthly",
-        "activity_type": "trail_running",
-        "data": {},
-        "summary": {}
-      },
-      "yearly": {
-        "period_type": "yearly",
-        "activity_type": "trail_running",
-        "data": {},
-        "summary": {}
-      },
-      "distance_distribution": {
-        "activity_type": "trail_running",
-        "total_activities": 12,
-        "distribution": {
-          "0-5公里": {
-            "count": 0,
-            "total_distance": 0,
-            "percentage": 0.0
-          },
-          "5-10公里": {
-            "count": 0,
-            "total_distance": 0,
-            "percentage": 0.0
-          },
-          "10-20公里": {
-            "count": 3,
-            "total_distance": 37.47,
-            "percentage": 25.0
-          },
-          "20-30公里": {
-            "count": 7,
-            "total_distance": 167.64,
-            "percentage": 58.3
-          },
-          "30-50公里": {
-            "count": 2,
-            "total_distance": 65.63,
-            "percentage": 16.7
-          },
-          "50公里以上": {
-            "count": 0,
-            "total_distance": 0,
-            "percentage": 0.0
-          }
-        }
-      },
-      "personal_bests": {
-        "activity_type": "trail_running",
-        "records": {
-          "longest_distance": {
-            "distance": 34.88004477368625,
-            "activity": {
-              "run_id": 1607212876000,
-              "name": "run from gpx",
-              "distance": 34880.04477368625,
-              "moving_time": "8:05:13",
-              "type": "trail_running",
-              "start_date": "2020-12-06 00:01:16",
-              "start_date_local": "2020-12-06 08:01:16",
-              "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
-              "summary_polyline": "{dmxDa~o`V{Fo@wYcGwBlF{C`MmAfIVbBdYhGpCL`C]tSyKf@mAJsCZSdCJdC~BdLvCxPiCn@h@PvEhB~BB|AZPoA|ENf@sA~CcAv@Ir@aFpAyNcDcBTgApAMtGxA`BxAFXtA~H_@\\zAhChA`@~D{@`B}@d@eBtERXtADjAaA?k@|@eAvCwAxAKzAuAdAO|Bd@hAy@vAHx@v@`AJ~Ag@OcCp@oEH_F}@yCfAqBD}FmAoAcBuDeBcLt@y@c@cA_AEO_G_AgFeJoWkAoFU{DvD_LzIuOhDiMvCdITvDf@M?[l@RhCnDa@bAn@lGc@nCAxChCpHu@nDcHjMk@zDRzE[jAfAx@j@~DhBzCbAh@b@zAhEVzBuCtDiClCp@xHyDjDeAz@VdA~CDlBnBdApAjBdAbHC~@qBzCA`CsBl@gC{DoAkEw@s@HZa@E}@q@Cc@qBiA[fAg@T{Bo@Ue@uBh@`DbVlEzDl@lBDrC\\PgAx@jJ|@o@rJvFz@pCnA`CEdBt@~@lChI`B_BlI`@r@pBPNt@x@TA`CtHvAdDEjEl@JaAo@oADm@yBgEAqGdAcCCkA{B}@eC_DwDmIoD{AeDwFGiAaDqEuFwCcA{ArE}CfAd@vCErCuAlEdBzDuANiCh@g@|Ba@bA{AhCCeAmEZ{Di@Gm@iBmDqC{@mB_CsAg@gAlGmAxKqG_AoDKqKiAg@kGrG{EmBoA`@g@QgEbDe@jAgA^Kf@z@dAHSXx@Ql@Z`A_@bAVNYpATfBf@l@uFrBeErDmEDeBw@yB@qC_Ak@o@R{@k@gA~AyAS}@^m@cB]{Cl@gBfBwB`AkAGgC{CiHfBgGT}BtAW}@|@cBM_C\\iAdDmCfAH`FcB`DeCpFuHbBe@G[dAg@x@ElAoAhAsIMk@iBMk@r@aAIsEeDqF}@o@q@WwCi@@Bw@?r@I[SNXGSgAZiCfHcDvEm@pC{BNm@yI}CkBiE}F}@Tg@|BMxAcAr@Jo@cALWgCeCsEu@}BdAi@cAiCq@aKwKJ{@K|@uCgCcEqHeFwNmFgHq@OqCf@aD{CaAKOs@{Cq@kDxH@vBf@r@aA|ELlA}BfIsBqDmDCgCcAmDjA}BWuAcFbAqEmDs@sJo@eAPsFbFoFx@?nAsAzDrAxDeBfBs@`B[Aq@nGbAjD^rEK`F`@vA{@`@[hA_BxAmF]kF{CsC\\y@nDeAh@}BLO\\vAxCRxC}@HcApAgFc@mAt@cBLsC~BbBxAL~AzFYjBjHbAv@nDr@K`@bAbAtAAxF_CDqEp@{@fDyAlFdB`AWrGjEfAfBzEs@|@i@hCpAtDA`@f@\\u@dA_@p@X|@gAfBz@r@YZXj@iAn@T~CzEAtBg@rByDhCiMBmDxGqH~EcEbFfa@nIV@`@eA`AJ",
-              "average_heartrate": 159.0,
-              "average_speed": 1.198091738181783,
-              "streak": 1
-            }
-          },
-          "longest_time": {
-            "time": 29113,
-            "activity": {
-              "run_id": 1607212876000,
-              "name": "run from gpx",
-              "distance": 34880.04477368625,
-              "moving_time": "8:05:13",
-              "type": "trail_running",
-              "start_date": "2020-12-06 00:01:16",
-              "start_date_local": "2020-12-06 08:01:16",
-              "location_country": "海盐县, 嘉兴市, 浙江省, 中国",
-              "summary_polyline": "{dmxDa~o`V{Fo@wYcGwBlF{C`MmAfIVbBdYhGpCL`C]tSyKf@mAJsCZSdCJdC~BdLvCxPiCn@h@PvEhB~BB|AZPoA|ENf@sA~CcAv@Ir@aFpAyNcDcBTgApAMtGxA`BxAFXtA~H_@\\zAhChA`@~D{@`B}@d@eBtERXtADjAaA?k@|@eAvCwAxAKzAuAdAO|Bd@hAy@vAHx@v@`AJ~Ag@OcCp@oEH_F}@yCfAqBD}FmAoAcBuDeBcLt@y@c@cA_AEO_G_AgFeJoWkAoFU{DvD_LzIuOhDiMvCdITvDf@M?[l@RhCnDa@bAn@lGc@nCAxChCpHu@nDcHjMk@zDRzE[jAfAx@j@~DhBzCbAh@b@zAhEVzBuCtDiClCp@xHyDjDeAz@VdA~CDlBnBdApAjBdAbHC~@qBzCA`CsBl@gC{DoAkEw@s@HZa@E}@q@Cc@qBiA[fAg@T{Bo@Ue@uBh@`DbVlEzDl@lBDrC\\PgAx@jJ|@o@rJvFz@pCnA`CEdBt@~@lChI`B_BlI`@r@pBPNt@x@TA`CtHvAdDEjEl@JaAo@oADm@yBgEAqGdAcCCkA{B}@eC_DwDmIoD{AeDwFGiAaDqEuFwCcA{ArE}CfAd@vCErCuAlEdBzDuANiCh@g@|Ba@bA{AhCCeAmEZ{Di@Gm@iBmDqC{@mB_CsAg@gAlGmAxKqG_AoDKqKiAg@kGrG{EmBoA`@g@QgEbDe@jAgA^Kf@z@dAHSXx@Ql@Z`A_@bAVNYpATfBf@l@uFrBeErDmEDeBw@yB@qC_Ak@o@R{@k@gA~AyAS}@^m@cB]{Cl@gBfBwB`AkAGgC{CiHfBgGT}BtAW}@|@cBM_C\\iAdDmCfAH`FcB`DeCpFuHbBe@G[dAg@x@ElAoAhAsIMk@iBMk@r@aAIsEeDqF}@o@q@WwCi@@Bw@?r@I[SNXGSgAZiCfHcDvEm@pC{BNm@yI}CkBiE}F}@Tg@|BMxAcAr@Jo@cALWgCeCsEu@}BdAi@cAiCq@aKwKJ{@K|@uCgCcEqHeFwNmFgHq@OqCf@aD{CaAKOs@{Cq@kDxH@vBf@r@aA|ELlA}BfIsBqDmDCgCcAmDjA}BWuAcFbAqEmDs@sJo@eAPsFbFoFx@?nAsAzDrAxDeBfBs@`B[Aq@nGbAjD^rEK`F`@vA{@`@[hA_BxAmF]kF{CsC\\y@nDeAh@}BLO\\vAxCRxC}@HcApAgFc@mAt@cBLsC~BbBxAL~AzFYjBjHbAv@nDr@K`@bAbAtAAxF_CDqEp@{@fDyAlFdB`AWrGjEfAfBzEs@|@i@hCpAtDA`@f@\\u@dA_@p@X|@gAfBz@r@YZXj@iAn@T~CzEAtBg@rByDhCiMBmDxGqH~EcEbFfa@nIV@`@eA`AJ",
-              "average_heartrate": 159.0,
-              "average_speed": 1.198091738181783,
-              "streak": 1
-            }
-          },
-          "fastest_pace": {
-            "pace": Infinity,
-            "activity": null
-          },
-          "highest_speed": {
-            "speed": 2.7115693616682557,
-            "activity": {
-              "run_id": 1727346889000,
-              "name": "run from gpx",
-              "distance": 13495.48071302291,
-              "moving_time": "1:22:57",
-              "type": "trail_running",
-              "start_date": "2024-09-26 10:34:49",
-              "start_date_local": "2024-09-26 18:34:49",
-              "location_country": "凌公塘路, 南湖区, 嘉兴市, 浙江省, 中国",
-              "summary_polyline": "qbtzDwgj`V[\\kJAkLvAa@[F`Fo@iAm@M{@X[v@xG`Sn@jFGnB~AfHSjFy@rDt@fKiB`E|@fDDxHj@dEWr@?~FnBjELxFh@|BKxAdBnDgDxLcBlAIpHn@nBFfE|@lBJzAAbDqAvEtBVfA_ECcGgCoI~@sK~BiEdAu@VuBoAgFVeKgAgFRg@`ADj@a@EoAn@gAOiBw@QMy@oC?_@h@kAaBPyQf@{AiAeGfBkTgC}NNu@o@kFg@}By@kAqB}JwAi@}@nAlGnRHjEzBdKKlHy@tDf@xFChD[|A{@dA|@~CJxIh@tD[t@?|FxBxEDpEh@zBO~AjA~ARhC_DjK_BpAOpF|@pDEfDfArCL~BGdCuAdEXXnBKz@mEK}F}BwHt@iK~BsEfA}@ZoBiAiFJkA_@aBb@wEeAeFTi@~AODcBn@cAM_B{@YS{@gCB_@f@qA}BGwEh@iCIiFd@gAaA{GVuFp@_DQsBj@iBsDcZ{AuDyAyH",
-              "average_heartrate": 152.0,
-              "average_speed": 2.7115693616682557,
-              "streak": 1
             }
           }
         }

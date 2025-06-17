@@ -1,8 +1,10 @@
 {
-  "generated_at": "2025-06-17T11:08:10.897138",
+  "generated_at": "2025-06-17T03:50:09.843846",
   "overview": {
     "total_activities": 364,
-    "available_types": ["running", "trail_running"],
+    "available_types": [
+      "running"
+    ],
     "total_distance_km": 4229.3,
     "total_time_seconds": 1668174,
     "total_time_formatted": "463:22:54",
@@ -14,22 +16,12 @@
     "running": {
       "name": "跑步",
       "icon": "🏃‍♂️",
-      "count": 352,
-      "total_distance": 3958.57,
-      "total_time": 1453111,
-      "avg_distance": 11.25,
-      "avg_time": 4128.15625,
-      "percentage": 96.7
-    },
-    "trail_running": {
-      "name": "越野跑",
-      "icon": "🥾",
-      "count": 12,
-      "total_distance": 270.74,
-      "total_time": 215063,
-      "avg_distance": 22.56,
-      "avg_time": 17921.916666666668,
-      "percentage": 3.3
+      "count": 364,
+      "total_distance": 4229.3,
+      "total_time": 1668174,
+      "avg_distance": 11.62,
+      "avg_time": 4582.895604395604,
+      "percentage": 100.0
     }
   }
 }
