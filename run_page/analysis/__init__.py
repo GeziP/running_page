@@ -8,10 +8,10 @@ from .heart_rate_analyzer import HeartRateAnalyzer
 from .advanced_stats import AdvancedStatsAnalyzer
 
 __all__ = [
-    'ActivityTypeManager',
-    'ACTIVITY_TYPES', 
-    'BasicStatsAnalyzer',
-    'PaceAnalyzer',
-    'HeartRateAnalyzer',
-    'AdvancedStatsAnalyzer'
-] 
+    "ActivityTypeManager",
+    "ACTIVITY_TYPES",
+    "BasicStatsAnalyzer",
+    "PaceAnalyzer",
+    "HeartRateAnalyzer",
+    "AdvancedStatsAnalyzer",
+]

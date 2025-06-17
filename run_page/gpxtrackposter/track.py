@@ -183,26 +183,26 @@ class Track:
         if self.end_time is None:
             raise TrackLoadError("Track has no end time.")
         self.length = gpx.length_2d()
-        
+
         # 读取GPX类型信息
         gpx_type = None
-        
+
         # 尝试从根元素获取类型
         for metadata in gpx.walk():
-            if hasattr(metadata, 'type') and metadata.type:
+            if hasattr(metadata, "type") and metadata.type:
                 gpx_type = metadata.type
                 break
-        
-        # 尝试从track元素获取类型  
+
+        # 尝试从track元素获取类型
         if not gpx_type:
             for track in gpx.tracks:
-                if hasattr(track, 'type') and track.type:
+                if hasattr(track, "type") and track.type:
                     gpx_type = track.type
                     break
-        
+
         # 使用智能分类确定最终类型
         self.type = self._classify_activity_type(gpx_type)
-        
+
         gpx.simplify()
         polyline_container = []
         heart_rate_list = []
@@ -372,72 +372,76 @@ class Track:
 
     def _classify_activity_type(self, gpx_type):
         """智能分类活动类型"""
-        
+
         # 首先尝试使用GPX文件中的类型信息
         if gpx_type:
             gpx_type_lower = gpx_type.lower()
-            
+
             # GPX类型映射
             gpx_mappings = {
-                'running': 'running',
-                'trail_running': 'trail_running', 
-                'treadmill_running': 'running',
-                'cycling': 'cycling',
-                'bike': 'cycling',
-                'ride': 'cycling'
+                "running": "running",
+                "trail_running": "trail_running",
+                "treadmill_running": "running",
+                "cycling": "cycling",
+                "bike": "cycling",
+                "ride": "cycling",
             }
-            
+
             for gpx_key, mapped_type in gpx_mappings.items():
                 if gpx_key in gpx_type_lower:
                     return mapped_type
-        
+
         # 如果GPX类型不明确，使用数据特征进行智能判断
         return self._analyze_activity_by_metrics()
-    
+
     def _analyze_activity_by_metrics(self):
         """基于运动数据特征分析活动类型"""
-        
+
         if not self.polylines:
-            return 'unknown'
-        
+            return "unknown"
+
         # 计算基础指标
         distance_km = self.length / 1000 if self.length else 0
-        
+
         if self.moving_time and self.moving_time.total_seconds() > 0:
             speed_ms = self.length / self.moving_time.total_seconds()
             speed_kmh = speed_ms * 3.6
             duration_hours = self.moving_time.total_seconds() / 3600
-            pace_min_per_km = (self.moving_time.total_seconds() / 60) / distance_km if distance_km > 0 else 999
+            pace_min_per_km = (
+                (self.moving_time.total_seconds() / 60) / distance_km
+                if distance_km > 0
+                else 999
+            )
         else:
-            return 'unknown'
-        
+            return "unknown"
+
         # 保守的自行车判断逻辑（与fix_types_by_date.py中的逻辑一致）
-        
+
         # 极明显的自行车特征
         if speed_kmh > 30:  # 极高速度
-            return 'cycling'
-        
+            return "cycling"
+
         if distance_km > 80:  # 极长距离
-            return 'cycling'
-        
+            return "cycling"
+
         # 综合判断：长距离 + 快速度的组合
         if distance_km > 50 and speed_kmh > 18:
-            return 'cycling'
-        
+            return "cycling"
+
         if distance_km > 40 and pace_min_per_km < 3.5:
-            return 'cycling'
-        
+            return "cycling"
+
         # 持续高速
         if speed_kmh > 25:
-            return 'cycling'
-        
+            return "cycling"
+
         # 超长时间 + 高速
         if duration_hours > 3 and speed_kmh > 20:
-            return 'cycling'
-        
+            return "cycling"
+
         # 正常跑步范围
         if 5 <= speed_kmh <= 20 and 3 <= pace_min_per_km <= 15:
-            return 'running'
-        
+            return "running"
+
         # 保守处理：不确定的标记为unknown
-        return 'unknown'
+        return "unknown"
