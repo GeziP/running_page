@@ -22,7 +22,8 @@ from config import SQL_FILE
 
 
 def load_activities_from_db():
-    """从数据库加载活动数据"""
+    """从数据库加载活动"""
+    print("... 从数据库加载活动...")
     try:
         generator = Generator(SQL_FILE)
         activities_list = generator.load()
@@ -30,6 +31,20 @@ def load_activities_from_db():
         return activities_list
     except Exception as e:
         print(f"❌ 加载活动数据失败: {e}")
+        return []
+
+
+def load_activities_from_json(file_path="src/static/activities.json"):
+    """直接从JSON文件加载活动"""
+    print(f"✅ 直接从 {file_path} 加载活动记录...")
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"❌ 错误: {file_path} 文件未找到。")
+        return []
+    except json.JSONDecodeError:
+        print(f"❌ 错误: 解析 {file_path} 文件时出错。")
         return []
 
 
@@ -81,12 +96,13 @@ def generate_basic_statistics(activities, output_dirs):
 
     # 获取可用的活动类型
     available_types = ["all"] + type_manager.get_available_types(activities)
+    print(f"  [DEBUG] 发现的可用活动类型: {available_types}")
 
     all_stats = {}
 
     for activity_type in available_types:
         print(
-            f"  处理活动类型: {type_manager.type_names.get(activity_type, activity_type)}"
+            f"  正在处理活动类型: {type_manager.type_names.get(activity_type, activity_type)} ({activity_type})"
         )
 
         # 周期性统计
@@ -140,13 +156,15 @@ def generate_advanced_analysis(activities, output_dirs):
 
     # 获取可用的活动类型
     available_types = ["all"] + type_manager.get_available_types(activities)
+    print(f"  [DEBUG] 发现的可用活动类型: {available_types}")
 
     advanced_stats = {}
 
     for activity_type in available_types:
+        # 只为跑步和越野跑生成高级分析
         if activity_type in ["running", "trail_running", "all"]:
             print(
-                f"  分析活动类型: {type_manager.type_names.get(activity_type, activity_type)}"
+                f"  正在分析活动类型: {type_manager.type_names.get(activity_type, activity_type)} ({activity_type})"
             )
 
             # 配速趋势分析
@@ -293,28 +311,30 @@ def generate_analysis_overview(activities, output_dirs):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="生成运动数据分析")
+    """主函数"""
+    parser = argparse.ArgumentParser()
     parser.add_argument(
         "--type",
-        choices=["all", "types", "basic", "advanced", "summary", "overview"],
+        dest="type",
+        metavar="TYPE",
         default="all",
-        help="生成分析类型",
+        help="要生成的分析类型 (e.g., all, running, cycling)",
     )
-
     args = parser.parse_args()
 
     print("🚀 开始生成运动数据分析...")
     print(f"📊 分析类型: {args.type}")
 
-    # 加载活动数据
-    activities = load_activities_from_db()
+    # 修改为直接从JSON加载
+    activities = load_activities_from_json()
     if not activities:
-        print("❌ 没有活动数据，退出程序")
-        return 1
+        print("❗️ 没有加载到活动数据，分析中止。")
+        return
+
+    print(f"✅ 成功加载 {len(activities)} 条活动记录")
 
     # 确保输出目录存在
-    src_output_dir, public_output_dir = ensure_output_dir()
-    output_dirs = [src_output_dir, public_output_dir]
+    output_dirs = ensure_output_dir()
 
     try:
         if args.type in ["all", "types"]:
@@ -333,7 +353,7 @@ def main():
             generate_analysis_overview(activities, output_dirs)
 
         print("\n🎉 所有分析数据生成完成！")
-        print(f"📂 输出目录: {src_output_dir}")
+        print(f"📂 输出目录: {output_dirs[0]}")
 
         return 0
 

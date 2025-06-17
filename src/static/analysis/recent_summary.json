@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-06-17T02:33:46.971440",
+  "generated_at": "2025-06-17T11:08:10.887163",
   "recent_summaries": {
     "all": {
       "weekly": {
@@ -37,6 +37,26 @@
       "yearly": {
         "period_type": "yearly",
         "activity_type": "running",
+        "data": {},
+        "summary": {}
+      }
+    },
+    "trail_running": {
+      "weekly": {
+        "period_type": "weekly",
+        "activity_type": "trail_running",
+        "data": {},
+        "summary": {}
+      },
+      "monthly": {
+        "period_type": "monthly",
+        "activity_type": "trail_running",
+        "data": {},
+        "summary": {}
+      },
+      "yearly": {
+        "period_type": "yearly",
+        "activity_type": "trail_running",
         "data": {},
         "summary": {}
       }
