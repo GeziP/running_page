@@ -445,6 +445,21 @@
                 return;
             }
 
+            // 运动类型映射
+            const typeMapping = {
+                'Run': '跑步',
+                'TrailRun': '越野跑',
+                'Ride': '骑行',
+                'VirtualRide': '虚拟骑行',
+                'EBikeRide': '电动自行车',
+                'cycling': '骑行',
+                'running': '跑步',
+                'trail_running': '越野跑',
+                'Walk': '步行',
+                'walking': '步行',
+                'Hike': '徒步'
+            };
+
             const recordsData = [
                 {
                     key: 'longest_distance',
@@ -494,8 +509,8 @@
                                 <span class="ml-1">${record.activity.start_date_local?.split('T')[0] || record.activity.start_date?.split(' ')[0] || ''}</span>
                             </div>
                             <div class="flex items-center">
-                                <span class="text-xs">📍</span>
-                                <span class="ml-1 truncate">${record.activity.name || '未命名活动'}</span>
+                                <span class="text-xs">🏃‍♂️</span>
+                                <span class="ml-1 truncate">${typeMapping[record.activity.type] || record.activity.type || '未知类型'}</span>
                             </div>
                         </div>
                     ` : ''}
