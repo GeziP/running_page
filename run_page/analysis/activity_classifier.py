@@ -10,7 +10,7 @@ from collections import defaultdict
 ACTIVITY_TYPES = {
     "running": ["Run", "Treadmill", "running", "treadmill_running"],
     "trail_running": ["TrailRun", "Hike", "trail_running"],
-    "cycling": ["Ride", "VirtualRide", "EBikeRide", "cycling", "biking"],
+    "cycling": ["Ride", "VirtualRide", "EBikeRide", "cycling", "biking", "Cycling"],
     "walking": ["Walk", "walking", "hiking"],
     "all": [
         "Run",
@@ -25,6 +25,7 @@ ACTIVITY_TYPES = {
         "EBikeRide",
         "cycling",
         "biking",
+        "Cycling",
         "Walk",
         "walking",
         "hiking",
