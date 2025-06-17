@@ -230,4 +230,30 @@ class ActivityTypeManager:
         minutes = int(pace_seconds // 60)
         seconds = int(pace_seconds % 60)
         
-        return f"{minutes}:{seconds:02d}" 
+        return f"{minutes}:{seconds:02d}"
+
+def get_running_activities(activities):
+    """获取跑步类活动，排除不确定的活动"""
+    return [
+        activity for activity in activities 
+        if activity.get('type') in ['running', 'trail_running']
+    ]
+
+def filter_activities_by_type(activities, activity_type):
+    """按类型过滤活动，排除unknown类型"""
+    if activity_type == 'all':
+        # 'all'不包括unknown类型
+        return [
+            activity for activity in activities 
+            if activity.get('type') not in ['unknown']
+        ]
+    elif activity_type == 'running':
+        return [
+            activity for activity in activities 
+            if activity.get('type') in ['running', 'trail_running']
+        ]
+    else:
+        return [
+            activity for activity in activities 
+            if activity.get('type') == activity_type
+        ] 

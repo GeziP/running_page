@@ -56,5 +56,49 @@ def analyze_activities():
         print(f"  start_date_local: {sample.get('start_date_local', 'N/A')}")
         print(f"  name: {sample.get('name', 'N/A')}")
 
+    # 检查用户质疑的50.7km记录
+    target_id = 1616287392000
+
+    for activity in activities:
+        if activity['run_id'] == target_id:
+            distance_km = activity['distance'] / 1000
+            speed_ms = activity.get('average_speed', 0)
+            speed_kmh = speed_ms * 3.6
+            
+            # 解析moving_time
+            moving_time_str = activity.get('moving_time', '0:00')
+            time_parts = moving_time_str.split(':')
+            if len(time_parts) == 3:  # H:MM:SS
+                total_minutes = int(time_parts[0]) * 60 + int(time_parts[1]) + int(time_parts[2]) / 60
+            elif len(time_parts) == 2:  # MM:SS
+                total_minutes = int(time_parts[0]) + int(time_parts[1]) / 60
+            
+            pace_min_per_km = total_minutes / distance_km if distance_km > 0 else 0
+            
+            print("=== 50.7km记录详细分析 ===")
+            print(f"ID: {activity['run_id']}")
+            print(f"当前类型: {activity['type']}")
+            print(f"距离: {distance_km:.1f}km")
+            print(f"时间: {moving_time_str}")
+            print(f"速度: {speed_kmh:.1f}km/h")
+            print(f"配速: {pace_min_per_km:.1f}分钟/公里")
+            print(f"日期: {activity['start_date_local']}")
+            print(f"心率: {activity.get('average_heartrate', 'N/A')}")
+            
+            # 分析这个记录的合理性
+            print("\n=== 合理性分析 ===")
+            if speed_kmh > 20:
+                print("⚠️  速度超过20km/h，极可能是自行车")
+            elif speed_kmh > 15:
+                print("⚠️  速度超过15km/h，可能是自行车或高水平跑者")
+            elif pace_min_per_km < 4:
+                print("⚠️  配速快于4分钟/公里，需要仔细确认")
+            elif distance_km > 42.195 and pace_min_per_km < 5:
+                print("⚠️  超马距离且配速较快，可能是自行车")
+            else:
+                print("✅ 从速度和配速看像是跑步")
+            
+            break
+
 if __name__ == "__main__":
     analyze_activities() 

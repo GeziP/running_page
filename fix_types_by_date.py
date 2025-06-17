@@ -8,6 +8,7 @@ import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import glob
+import shutil
 
 def parse_gpx_date(gpx_file):
     """从GPX文件中提取开始时间"""
@@ -146,5 +147,144 @@ def match_activities_by_date():
     
     return type_updates
 
+def is_likely_cycling(distance_km, speed_kmh, pace_min_per_km, duration_hours):
+    """更智能的自行车判断逻辑"""
+    
+    # 极明显的自行车特征
+    if speed_kmh > 30:  # 极高速度
+        return True, "速度过高(>30km/h)"
+    
+    if distance_km > 80:  # 极长距离
+        return True, "距离过长(>80km)"
+    
+    # 综合判断：长距离 + 快速度的组合
+    if distance_km > 50 and speed_kmh > 18:
+        return True, f"长距离({distance_km:.1f}km) + 高速({speed_kmh:.1f}km/h)"
+    
+    if distance_km > 40 and pace_min_per_km < 3.5:
+        return True, f"长距离({distance_km:.1f}km) + 快配速({pace_min_per_km:.1f}min/km)"
+    
+    # 持续高速
+    if speed_kmh > 25:
+        return True, f"持续高速({speed_kmh:.1f}km/h)"
+    
+    # 超长时间 + 高速
+    if duration_hours > 3 and speed_kmh > 20:
+        return True, f"长时间({duration_hours:.1f}h) + 高速({speed_kmh:.1f}km/h)"
+    
+    return False, "符合跑步特征"
+
+def analyze_unmatched_activities():
+    """分析未匹配的活动"""
+    
+    # 读取activities.json
+    with open('src/static/activities.json', 'r', encoding='utf-8') as f:
+        activities = json.load(f)
+    
+    # 创建备份
+    shutil.copy('src/static/activities.json', 'src/static/activities.json.backup3')
+    
+    print("=== 分析未匹配的'Run'类型活动 ===")
+    
+    run_activities = [a for a in activities if a.get('type') == 'Run']
+    print(f"找到 {len(run_activities)} 个未匹配的'Run'活动")
+    
+    cycling_candidates = []
+    keep_as_unknown = []
+    
+    for activity in run_activities:
+        distance_km = activity['distance'] / 1000
+        speed_ms = activity.get('average_speed', 0)
+        speed_kmh = speed_ms * 3.6
+        
+        # 解析时间
+        moving_time_str = activity.get('moving_time', '0:00')
+        time_parts = moving_time_str.split(':')
+        if len(time_parts) == 3:  # H:MM:SS
+            duration_hours = int(time_parts[0]) + int(time_parts[1])/60 + int(time_parts[2])/3600
+            total_minutes = int(time_parts[0]) * 60 + int(time_parts[1]) + int(time_parts[2]) / 60
+        elif len(time_parts) == 2:  # MM:SS
+            duration_hours = int(time_parts[0])/60 + int(time_parts[1])/3600
+            total_minutes = int(time_parts[0]) + int(time_parts[1]) / 60
+        else:
+            duration_hours = 0
+            total_minutes = 0
+        
+        pace_min_per_km = total_minutes / distance_km if distance_km > 0 else 999
+        
+        is_cycling, reason = is_likely_cycling(distance_km, speed_kmh, pace_min_per_km, duration_hours)
+        
+        activity_info = {
+            'activity': activity,
+            'distance_km': distance_km,
+            'speed_kmh': speed_kmh,
+            'pace_min_per_km': pace_min_per_km,
+            'duration_hours': duration_hours,
+            'is_cycling': is_cycling,
+            'reason': reason
+        }
+        
+        if is_cycling:
+            cycling_candidates.append(activity_info)
+        else:
+            keep_as_unknown.append(activity_info)
+    
+    print(f"\n发现 {len(cycling_candidates)} 个可能的自行车活动：")
+    for i, info in enumerate(cycling_candidates):
+        act = info['activity']
+        print(f"{i+1}. ID: {act['run_id']}")
+        print(f"   距离: {info['distance_km']:.1f}km")
+        print(f"   速度: {info['speed_kmh']:.1f}km/h")
+        print(f"   配速: {info['pace_min_per_km']:.1f}分钟/公里")
+        print(f"   时长: {info['duration_hours']:.1f}小时")
+        print(f"   日期: {act['start_date_local']}")
+        print(f"   判断原因: {info['reason']}")
+        print()
+    
+    print(f"保持为未知类型的活动: {len(keep_as_unknown)} 个")
+    
+    # 询问用户确认
+    print("\n=== 建议的修改 ===")
+    print(f"1. 将 {len(cycling_candidates)} 个活动标记为 'cycling'")
+    print(f"2. 将 {len(keep_as_unknown)} 个活动标记为 'unknown'（不参与跑步统计）")
+    
+    return cycling_candidates, keep_as_unknown
+
+def apply_conservative_fixes():
+    """应用保守的类型修正"""
+    
+    cycling_candidates, unknown_candidates = analyze_unmatched_activities()
+    
+    # 读取activities.json
+    with open('src/static/activities.json', 'r', encoding='utf-8') as f:
+        activities = json.load(f)
+    
+    # 应用修改
+    cycling_ids = [c['activity']['run_id'] for c in cycling_candidates]
+    unknown_ids = [u['activity']['run_id'] for u in unknown_candidates]
+    
+    for activity in activities:
+        if activity['run_id'] in cycling_ids:
+            activity['type'] = 'cycling'
+        elif activity['run_id'] in unknown_ids:
+            activity['type'] = 'unknown'  # 不参与跑步统计
+    
+    # 保存
+    with open('src/static/activities.json', 'w', encoding='utf-8') as f:
+        json.dump(activities, f, ensure_ascii=False, indent=2)
+    
+    # 统计结果
+    type_counts = {}
+    for activity in activities:
+        activity_type = activity.get('type', 'Unknown')
+        type_counts[activity_type] = type_counts.get(activity_type, 0) + 1
+    
+    print("\n=== 修正完成 ===")
+    print(f"修正了 {len(cycling_candidates)} 个活动为cycling")
+    print(f"标记了 {len(unknown_candidates)} 个活动为unknown")
+    print("\n最终类型分布:")
+    for activity_type, count in sorted(type_counts.items()):
+        print(f"  {activity_type}: {count}")
+
 if __name__ == "__main__":
-    updates = match_activities_by_date() 
+    apply_conservative_fixes() 
