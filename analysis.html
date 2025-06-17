@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gezi跑步数据深度分析 - 活动类型统计、距离分布、配速趋势、个人最佳记录">
+    <meta name="keywords" content="跑步数据,运动分析,配速分析,距离统计,运动可视化">
+    <meta name="author" content="Gezi Running">
     <title>📊 运动数据分析 - Gezi Running</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -35,7 +38,7 @@
                 <button onclick="refreshData()" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition-colors">
                     🔄 刷新数据
                 </button>
-                <a href="/" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <a href="/index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
                     ← 返回主页
                 </a>
             </div>
@@ -175,9 +178,9 @@
                 showLoading(true);
                 
                 const [overviewRes, typesRes, basicRes] = await Promise.allSettled([
-                    fetch('./src/static/analysis/analysis_overview.json'),
-                    fetch('./src/static/analysis/activity_types.json'),
-                    fetch('./src/static/analysis/basic_statistics.json')
+                    fetch('/src/static/analysis/analysis_overview.json'),
+                    fetch('/src/static/analysis/activity_types.json'),
+                    fetch('/src/static/analysis/basic_statistics.json')
                 ]);
 
                 if (overviewRes.status === 'fulfilled' && overviewRes.value.ok) {
@@ -209,18 +212,23 @@
         function showError(message) {
             showLoading(false);
             document.body.innerHTML = `
-                <div class="flex items-center justify-center min-h-screen">
-                    <div class="text-center max-w-md mx-auto p-8">
-                        <h2 class="text-2xl font-bold text-red-600 mb-4">❌ ${message}</h2>
-                        <p class="text-gray-600 mb-4">请确保已运行分析脚本生成数据</p>
-                        <div class="space-y-2">
+                <div class="flex items-center justify-center min-h-screen bg-gray-50">
+                    <div class="text-center max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg">
+                        <div class="text-6xl mb-4">😓</div>
+                        <h2 class="text-2xl font-bold text-red-600 mb-4">数据加载失败</h2>
+                        <p class="text-gray-600 mb-6">可能的原因：分析数据尚未生成或文件路径不正确</p>
+                        <div class="space-y-3">
                             <button onclick="window.location.reload()" 
-                                    class="block w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                                重新加载
+                                    class="block w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                                🔄 重新加载
                             </button>
-                            <a href="/" class="block w-full bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700">
-                                返回主页
+                            <a href="/index.html" class="block w-full bg-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium text-decoration-none">
+                                🏠 返回主页
                             </a>
+                            <div class="text-sm text-gray-500 mt-4">
+                                <p>💡 提示：请在项目根目录运行</p>
+                                <code class="bg-gray-100 px-2 py-1 rounded text-xs">python run_page/gen_analysis.py</code>
+                            </div>
                         </div>
                     </div>
                 </div>
