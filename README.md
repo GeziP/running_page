@@ -1,16 +1,3 @@
-## Note
-
-1. clone or Fork before vercel 404 need to pull the latest code
-2. python3(python) in README means python3 python
-3. use v2.0 need change vercel setting from gatsby to vite
-4. 2023.09.26 garmin need secret_string(and in Actions) get
-
-```bash
-  python run_page/get_garmin_secret.py ${email} ${password}
-  # if cn
-  python run_page/get_garmin_secret.py ${email} ${password} --is-cn
-```
-
 <p align="center">
   <img width="150" src="https://raw.githubusercontent.com/shaonianche/gallery/master/running_page/running_page_logo.png" />
 </p>
@@ -29,6 +16,53 @@
 </p>
 
 English | [简体中文](https://github.com/yihong0618/running_page/blob/master/README-CN.md) | [Wiki](https://mfydev.github.io/Running-Page-Wiki/)
+
+## Table of Contents
+- [Runner's Page Show](#runners-page-show)
+- [How it works](#how-it-works)
+- [Features](#features)
+- [Support](#support)
+- [Download](#download)
+- [Installation and testing](#installation-and-testing)
+- [Docker](#docker)
+- [Local sync data](#local-sync-data)
+  - [Modifying Mapbox token](#modifying-mapbox-token)
+- [Custom your page](#custom-your-page)
+- [Download your running data](#download-your-running-data)
+  - [GPX Data](#make-your-gpx-data)
+  - [TCX Data](#make-your-tcx-data)
+  - [FIT Data](#make-your-fit-data)
+  - [Garmin Data](#get-your-garmin-data)
+  - [Garmin-CN Data](#get-your-garmin-cn-data)
+  - [Garmin-CN to Garmin Sync](#sync-your-garmin-cn-data-to-garmin)
+  - [Nike Run Club New Sync](#get-your-nike-run-club-data)
+  - [Nike Run Club Sync (Legacy)](#get-your-nike-run-club-data-1)
+  - [Strava Data](#get-your-strava-data)
+  - [Upload TCX to Strava](#upload-all-tcx-files-to-strava)
+  - [Upload TCX to Garmin](#upload-all-tcx-files-to-garmin)
+  - [Upload GPX to Strava](#upload-all-gpx-files-to-strava)
+  - [Nike to Strava Sync](#get-your-nike-run-club-data-and-upload-to-strava)
+  - [Garmin to Strava Sync](#get-your-garmin-data-and-upload-to-strava)
+  - [Strava to Garmin Sync](#get-your-strava-data-and-upload-to-garmin)
+  - [Coros Data](#get-your-coros-data)
+  - [Total Data Analysis Display](#running-data-display)
+- [Server Deployment](#server-deployment)
+  - [Use Vercel to deploy](#use-vercel-to-deploy)
+  - [Use Cloudflare to deploy](#use-cloudflare-to-deploy)
+  - [Deploy to GitHub Pages](#deploy-to-github-pages)
+- [GitHub Actions](#github-actions)
+  - [Modifying information in GitHub Actions](#modifying-information-in-github-actions)
+- [Shortcuts](#shortcuts)
+  - [Automate with iOS Shortcuts](#automate-with-ios-shortcuts)
+- [Storing Data Files in GitHub Cache](#storing-data-files-in-github-cache)
+- [Fit file](#fit-file)
+- [TODO](#todo)
+- [Contribution](#contribution)
+- [Special thanks](#special-thanks)
+- [Recommended Forks](#recommended-forks)
+- [Support This Project](#support-this-project)
+- [Raycast Extension](#raycast-extension)
+- [FAQ](#faq)
 
 ## [Runner's Page Show](https://github.com/yihong0618/running_page/issues/12)
 
@@ -123,6 +157,11 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 
 > Note: If you don't want to make the data public, you can choose strava's fuzzy processing, or private repositories.
 
+## Video Tutorials
+
+- [running_page配置教程，跑步数据汇集展示。(How to config running page on Github)](https://www.youtube.com/watch?v=reLiY9p8EJk)
+  - *This video includes English in its title and may be helpful for configuration.*
+
 ## Support
 
 - **[Garmin](#garmin)**
@@ -150,7 +189,9 @@ Clone or fork the repo.
 git clone https://github.com/yihong0618/running_page.git --depth=1
 ```
 
-## Installation and testing (node >= 16 python >= 3.8)
+## Installation and testing (node >= 16, python >= 3.8; note: Garmin-CN sync and Garmin-CN to Garmin sync require python >= 3.10)
+
+> Note: `python3(python)` in this README refers to using the `python3` command or `python`, depending on your system's configuration.
 
 ```bash
 pip3 install -r requirements.txt
@@ -329,11 +370,9 @@ python3(python) run_page/fit_sync.py
 
 #### Get Garmin Secret
 
-Enter the following command in the terminal
-
+Enter the following command in the terminal to get your `secret_string`:
 ```bash
-# to get secret_string
-python3(python) run_page/get_garmin_secret.py ${your email} ${your password}
+python run_page/get_garmin_secret.py ${email} ${password}
 ```
 
 #### Execute Garmin Sync Script
@@ -374,11 +413,9 @@ python3(python) run_page/garmin_sync.py xxxxxxxxxxxxxx(secret_string) --only-run
 
 #### Get Garmin CN Secret
 
-Enter the following command in the terminal
-
+Enter the following command in the terminal to get your `secret_string`:
 ```bash
-# to get secret_string
-python3(python) run_page/get_garmin_secret.py ${your email} ${your password} --is-cn
+python run_page/get_garmin_secret.py ${email} ${password} --is-cn
 ```
 
 ![get_garmin_cn_secret](docs/get_garmin_cn_secret.jpg)
@@ -806,7 +843,7 @@ For more display effects, see:
 
 </details>
 
-## server(recommendation vercel)
+## Server Deployment
 
 <details>
 <summary> Use <code> Vercel </code> to deploy </summary>
@@ -814,6 +851,8 @@ For more display effects, see:
 <br>
 
 1. vercel connects to your GitHub repo.
+   > **Note:** If you encounter a 404 error after deploying to Vercel, ensure your fork is up-to-date with the latest code from the main repository and try redeploying.
+   > **Note:** If you are using v2.0 of this project, you may need to change the Vercel project settings from "Gatsby" to "Vite" under the "Framework Preset" option.
 
 <br>
 
@@ -959,14 +998,14 @@ If you are deploying using GitHub Pages, it is recommended to set this value to 
 
 </details>
 
-# Fit file
+## Fit file
 
 supported manufacturer:
 
 - [x] Garmin
 - [x] magene
 
-# TODO
+## TODO
 
 - [x] Complete this document.
 - [x] Support Garmin, Garmin China
@@ -976,10 +1015,10 @@ supported manufacturer:
 - [x] add new features
 - [ ] tests
 - [ ] support the world map
-- [ ] support multiple types, like hiking, biking~
+- [ ] Enhanced support for multiple activity types (e.g., hiking, biking) beyond current generic file/service import capabilities.
 - [ ] support for Zeep life
 
-# Contribution
+## Contribution
 
 - Any Issues PR welcome.
 - You can PR share your Running page in README I will merge it.
@@ -996,21 +1035,29 @@ Before submitting PR:
 - @[geekplux](https://github.com/geekplux) Friendly help and encouragement, refactored the whole front-end code, learned a lot
 - @[MFYDev](https://github.com/MFYDev) Wiki
 
-# Recommended Forks
+## Special thanks
+
+- @[flopp](https://github.com/flopp) great repo [GpxTrackPoster](https://github.com/flopp/GpxTrackPoster)
+- @[danpalmer](https://github.com/danpalmer) UI design
+- @[shaonianche](https://github.com/shaonianche) icon design and doc
+- @[geekplux](https://github.com/geekplux) Friendly help and encouragement, refactored the whole front-end code, learned a lot
+- @[MFYDev](https://github.com/MFYDev) Wiki
+
+## Recommended Forks
 
 - @[gongzili456](https://github.com/gongzili456) for [motorcycle version](https://github.com/gongzili456/running_page)
 - @[ben-29](https://github.com/ben-29) for [different types support](https://github.com/ben-29/workouts_page)
 - @[geekplux](https://github.com/geekplux) for [different types support](https://github.com/geekplux/activities)
 
-# Support
+## Support This Project
 
 Just enjoy it~
 
-# Raycast Extension
+## Raycast Extension
 
 <a title="Install running-page Raycast Extension" href="https://www.raycast.com/Lemon/running-page"><img src="https://www.raycast.com/Lemon/running-page/install_button@2x.png?v=1.1" height="64" alt="" style="height: 64px;"></a>
 
-# FAQ
+## FAQ
 
 - Strava Api limit
 
