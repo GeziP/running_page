@@ -6,6 +6,7 @@ interface ISiteMetadataResult {
   navLinks: {
     name: string;
     url: string;
+    isInternal?: boolean;
   }[];
 }
 
@@ -15,6 +16,11 @@ const data: ISiteMetadataResult = {
   logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
   description: 'Personal site and blog',
   navLinks: [
+    {
+      name: '🏃‍♂️ 专业分析',
+      url: '/professional-analysis',
+      isInternal: true,
+    },
     {
       name: 'Blog',
       url: 'https://gezi-lucas.blogspot.com/',

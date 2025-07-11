@@ -16,13 +16,25 @@ const Header = () => {
         </div>
         <div className="w-3/4 text-right">
           {navLinks.map((n, i) => (
-            <a
-              key={i}
-              href={n.url}
-              className="mr-3 text-lg lg:mr-4 lg:text-base"
-            >
-              {n.name}
-            </a>
+            n.isInternal ? (
+              <Link
+                key={i}
+                to={n.url}
+                className="mr-3 text-lg lg:mr-4 lg:text-base hover:text-blue-600 transition-colors"
+              >
+                {n.name}
+              </Link>
+            ) : (
+              <a
+                key={i}
+                href={n.url}
+                className="mr-3 text-lg lg:mr-4 lg:text-base hover:text-blue-600 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {n.name}
+              </a>
+            )
           ))}
         </div>
       </nav>
