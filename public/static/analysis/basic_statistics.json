@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-16T00:22:46.217436",
+  "generated_at": "2025-10-17T00:22:19.632417",
   "stats_by_type": {
     "all": {
       "weekly": {
@@ -22,7 +22,7 @@
       },
       "distance_distribution": {
         "activity_type": "all",
-        "total_activities": 381,
+        "total_activities": 382,
         "distribution": {
           "0-5公里": {
             "count": 34,
@@ -30,14 +30,14 @@
             "percentage": 8.9
           },
           "5-10公里": {
-            "count": 159,
-            "total_distance": 1169.95,
-            "percentage": 41.7
+            "count": 160,
+            "total_distance": 1176.66,
+            "percentage": 41.9
           },
           "10-20公里": {
             "count": 144,
             "total_distance": 1877.3,
-            "percentage": 37.8
+            "percentage": 37.7
           },
           "20-30公里": {
             "count": 36,
@@ -151,7 +151,7 @@
       },
       "distance_distribution": {
         "activity_type": "running",
-        "total_activities": 381,
+        "total_activities": 382,
         "distribution": {
           "0-5公里": {
             "count": 34,
@@ -159,14 +159,14 @@
             "percentage": 8.9
           },
           "5-10公里": {
-            "count": 159,
-            "total_distance": 1169.95,
-            "percentage": 41.7
+            "count": 160,
+            "total_distance": 1176.66,
+            "percentage": 41.9
           },
           "10-20公里": {
             "count": 144,
             "total_distance": 1877.3,
-            "percentage": 37.8
+            "percentage": 37.7
           },
           "20-30公里": {
             "count": 36,
