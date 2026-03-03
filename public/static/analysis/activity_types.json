@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-02T00:30:25.202566",
-  "total_activities": 407,
+  "generated_at": "2026-03-03T00:31:27.694078",
+  "total_activities": 408,
   "available_types": [
     "running"
   ],
@@ -8,11 +8,11 @@
     "running": {
       "name": "跑步",
       "icon": "🏃‍♂️",
-      "count": 407,
-      "total_distance": 4585.17,
-      "total_time": 1862721,
-      "avg_distance": 11.27,
-      "avg_time": 4576.710073710074,
+      "count": 408,
+      "total_distance": 4593.06,
+      "total_time": 1865899,
+      "avg_distance": 11.26,
+      "avg_time": 4573.281862745098,
       "percentage": 100.0
     }
   }
