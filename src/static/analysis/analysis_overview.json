@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-03-15T00:35:04.307378",
+  "generated_at": "2026-03-16T00:34:56.601375",
   "overview": {
-    "total_activities": 410,
+    "total_activities": 411,
     "available_types": [
       "running"
     ],
-    "total_distance_km": 4606.44,
-    "total_time_seconds": 1871660,
-    "total_time_formatted": "519:54:20",
+    "total_distance_km": 4614.22,
+    "total_time_seconds": 1875161,
+    "total_time_formatted": "520:52:41",
     "date_range": {},
-    "avg_distance_per_activity": 11.24,
-    "avg_time_per_activity": "1:16:05"
+    "avg_distance_per_activity": 11.23,
+    "avg_time_per_activity": "1:16:02"
   },
   "type_breakdown": {
     "running": {
       "name": "跑步",
       "icon": "🏃‍♂️",
-      "count": 410,
-      "total_distance": 4606.44,
-      "total_time": 1871660,
-      "avg_distance": 11.24,
-      "avg_time": 4565.024390243902,
+      "count": 411,
+      "total_distance": 4614.22,
+      "total_time": 1875161,
+      "avg_distance": 11.23,
+      "avg_time": 4562.435523114355,
       "percentage": 100.0
     }
   }
